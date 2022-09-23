@@ -59,7 +59,7 @@
 	<%} %>
 	
 
-	<form action="/CrudNuevoLienzoArt/formulariousuario" method="post">
+	<form action="${pageContext.request.contextPath}/formulariousuario" method="post">
 	
 		
 	

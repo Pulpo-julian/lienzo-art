@@ -11,7 +11,7 @@
           <div class="content">
             <p>Empresa dedica al desarrollo de Software, tienda online</p>
             <div class="social">
-              <p>P�gina desarrollada para la venta de productos artesanales, enfocada principalmente en las tiendas del oriente antioque�o,
+              <p>Página desarrollada para la venta de productos artesanales, enfocada principalmente en las tiendas del oriente antioque�o,
                brindando la facilidad a los vendedores independientes o con tiendas f�sicas a tener 
               un impacto un poco mayor en su n�mero de ventas, esta pagina les brindara la opci�n de generar m�s 
               ingresos y dar a conocer sus productos a otras regiones de antioquia.
