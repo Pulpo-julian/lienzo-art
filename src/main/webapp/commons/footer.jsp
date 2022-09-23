@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+
 <link rel="stylesheet" href="estilos/estilosfooter.css">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
@@ -8,9 +11,9 @@
           <div class="content">
             <p>Empresa dedica al desarrollo de Software, tienda online</p>
             <div class="social">
-              <p>Página desarrollada para la venta de productos artesanales, enfocada principalmente en las tiendas del oriente antioqueño,
-               brindando la facilidad a los vendedores independientes o con tiendas físicas a tener 
-              un impacto un poco mayor en su número de ventas, esta pagina les brindara la opción de generar más 
+              <p>Pï¿½gina desarrollada para la venta de productos artesanales, enfocada principalmente en las tiendas del oriente antioqueï¿½o,
+               brindando la facilidad a los vendedores independientes o con tiendas fï¿½sicas a tener 
+              un impacto un poco mayor en su nï¿½mero de ventas, esta pagina les brindara la opciï¿½n de generar mï¿½s 
               ingresos y dar a conocer sus productos a otras regiones de antioquia.
             <br> Equipo #3 <br>
               </p>
@@ -19,7 +22,7 @@
         </div>
 
         <div class="center box">
-          <h2>Contáctanos</h2>
+          <h2>Contï¿½ctanos</h2>
           <div class="content">
             <div class="place">
              <span class="fas fa-map-marker-alt" id="icono_footer"></span>  
