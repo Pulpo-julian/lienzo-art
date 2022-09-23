@@ -90,6 +90,7 @@ public class CtrIndex extends HttpServlet {
             request.setAttribute("categorias", categorias);
 
 
+            response.setContentType("text/html; charset=UTF-8");
 
             getServletContext().getRequestDispatcher("/vistas/vistaprincipal.jsp").forward(request, response);
 
