@@ -3,7 +3,7 @@
 
 <%@ page import="java.util.Map"%>
 <%@ page import="java.util.List"%>
-<%@ page import="modelos.Categoria"%>
+<%@ page import="com.grupotres.app.modelos.Categoria"%>
 
 <% List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias"); %>
 <% Map<String, String> errores = (Map<String, String>) request.getAttribute("errores"); %>

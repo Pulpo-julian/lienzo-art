@@ -1,5 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <% String buscar = (String) request.getAttribute("buscar"); %>
 <head>
+    <meta charset="UTF-8">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos/estilosheader1.css">
@@ -29,7 +32,7 @@
         <div class="usuario_login col-2">
         
              <form action="${pageContext.request.contextPath}/controlsesion" method="post">
-                <input type="submit" name="sesion" value="Iniciar sesi�n" class="btniniciarsesion">
+                <input type="submit" name="sesion" value="Iniciar sesión" class="btniniciarsesion">
              </form>                                    
     
         </div>
@@ -37,7 +40,7 @@
         <div class="usuario_register col-2">
         
              <form action="${pageContext.request.contextPath}/controlsesion" method="post">
-                <input type="submit" name="registro" value="Reg�strate" class="btncrearusuario">
+                <input type="submit" name="registro" value="Regístrate" class="btncrearusuario">
              </form>                                
     
         </div>

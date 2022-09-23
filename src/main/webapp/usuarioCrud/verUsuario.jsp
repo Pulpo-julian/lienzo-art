@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.Map"%>
-<%@ page import="modelos.Usuario"%>
+<%@ page import="com.grupotres.app.modelos.Usuario"%>
 <% Usuario usuario = (Usuario) request.getAttribute("usuario"); %>
 
 <!DOCTYPE html>
