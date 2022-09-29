@@ -35,7 +35,7 @@
 
 	<div id="iconmain"class="col-6">
 			
-		<a href="/CrudNuevoLienzoArt/controlprincipal"> <img src="img/logo.png"> </a>
+		<a href="${pageContext.request.contextPath}/controlprincipal"> <img src="img/logo.png"> </a>
 				
 	</div>
 	
@@ -43,7 +43,7 @@
 
 
 		<h1>Registro</h1>
-		<form action="/CrudNuevoLienzoArt/formulariousuario" method="post" class="form_usuario row <%if(errores != null && errores.size() > 0 ){%> <% out.print("was-validated"); %>" <%} %>" novalidate>
+		<form action="${pageContext.request.contextPath}/formulariousuario" method="post" class="form_usuario row <%if(errores != null && errores.size() > 0 ){%> <% out.print("was-validated"); %>" <%} %>" novalidate>
 
 			<div class="col-6">
 			

@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     
 <%@ page import="java.util.List"%>
-<%@ page import="modelos.Usuario"%>
+<%@ page import="com.grupotres.app.modelos.Usuario"%>
 <% List<Usuario> listaUsuario = (List<Usuario>)request.getAttribute("listUsuarios"); %>
     
 <!DOCTYPE html>
@@ -59,7 +59,7 @@
 	<%} %>
 	
 
-	<form action="/CrudNuevoLienzoArt/formulariousuario" method="post">
+	<form action="${pageContext.request.contextPath}/formulariousuario" method="post">
 	
 		
 	
