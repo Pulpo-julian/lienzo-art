@@ -36,7 +36,7 @@
 		
 			<div id="iconmain"class="col-6">
 			
-				<a href="/CrudNuevoLienzoArt/controlprincipal">
+				<a href="${pageContext.request.contextPath}/controlprincipal">
 					<img src="img/logo.png">
 				</a>	
 				
@@ -44,7 +44,7 @@
 		
 			<div class="formulario col-6">
 			
-				<form action="/CrudNuevoLienzoArt/formulariousuario" method="post">
+				<form action="${pageContext.request.contextPath}/formulariousuario" method="post">
 				
 					<h1>Iniciar sesión</h1>
 					
@@ -71,7 +71,7 @@
 				<div class="registro">
 				
 	
-					<form action="/CrudNuevoLienzoArt/controlsesion" method="post">
+					<form action="${pageContext.request.contextPath}/controlsesion" method="post">
 						
 						<h6>¿No tienes una cuenta? <input type="submit" name="registro" id="btnregistro" value="Regístrate" class="boton_mov mt-3"> </h6>
 						<h6>¿Olvidaste tu contraseña? <input type="submit" name="sesion" id="btnregistro" value="Recupérala" class="boton_mov"> </h6>	
