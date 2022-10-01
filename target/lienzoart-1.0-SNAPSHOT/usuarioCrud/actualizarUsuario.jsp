@@ -22,7 +22,7 @@
 
 
 		<h1>Actualizar Usuario</h1>
-		<form action="/CrudNuevoLienzoArt/formulariousuario" method="post" class="form_usuario">
+		<form action="${pageContext.request.contextPath}/formulariousuario" method="post" class="form_usuario">
 
 			<div>
 				<label>Cedula</label> <input type="text" placeholder="su cedula"

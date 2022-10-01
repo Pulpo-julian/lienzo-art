@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ page import="java.util.Map"%>
-<%@ page import="modelos.Usuario"%>
+<%@ page import="com.grupotres.app.modelos.Usuario"%>
 <% Usuario usuario = (Usuario) request.getAttribute("usuario"); %>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 
 
 		<h1>Buscar Usuario</h1>
-		<form action="/CrudNuevoLienzoArt/formulariousuario" method="post" class="form_usuario">
+		<form action="${pageContext.request.contextPath}/formulariousuario" method="post" class="form_usuario">
 
 			<div>
 				<label>Cedula</label> <input type="text" placeholder="su cedula"
