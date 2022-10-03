@@ -38,7 +38,7 @@
 
 
 		<h1><b>Publicar Producto</b></h1>
-		<form action="/CrudNuevoLienzoArt/formularioproducto" method="post" class="form_producto row <%if(errores != null && errores.size() > 0 ){%> <% out.print("was-validated"); %>" <%} %>" novalidate enctype="multipart/form-data">
+		<form action="${pageContext.request.contextPath}/formularioproducto" method="post" class="form_producto row <%if(errores != null && errores.size() > 0 ){%> <% out.print("was-validated"); %>" <%} %>" novalidate enctype="multipart/form-data">
 
 			<div>
 			

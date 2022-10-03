@@ -3,11 +3,14 @@ package com.grupotres.app.dao;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.grupotres.app.conexion.Conexion;
 import com.grupotres.app.modelos.Usuario;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,11 +25,14 @@ public class DaoUsuario {
 
     private static final String SQL_SELECT_DOCID = "SELECT docid, nombres, apellidos, correo FROM tblusuario WHERE docid = ?;";
 
-    private static final String SQL_INSERT = "INSERT INTO tblusuario VALUES(?,?,?,?,?,?,?,?,?,?);";
+    private static final String SQL_INSERT = "INSERT INTO tblusuario VALUES(?,?,?,?,?,(AES_ENCRYPT(?, \"lienzoart22\")),?,?,?,?);";
 
     private static final String SQL_UPDATE = "UPDATE tblusuario SET nombres = ?, apellidos = ?, correo = ? WHERE docid = ?;";
 
     private static final String SQL_DELETE = "DELETE FROM tblusuario WHERE docid = ?;";
+
+    private static final String SQL_SELECT_BY_MAIL_PASS = "SELECT docid, nombres, apellidos, correo FROM tblusuario WHERE correo = ? AND ? = AES_DECRYPT(clave, \"lienzoart22\");";
+
 
 
 
@@ -106,6 +112,46 @@ public class DaoUsuario {
         return usuario;
 
     }
+
+    public Usuario buscarUsuarioPorCorreoPassword(String doc, String password){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Usuario usuario = null;
+
+        try {
+
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_BY_MAIL_PASS);
+            stmt.setString(1, doc);
+            stmt.setString(2, password);
+            rs = stmt.executeQuery();
+
+            rs.next();
+            String docid = rs.getString(1);
+            String nombres = rs.getString(2);
+            String apellidos = rs.getString(3);
+            String correo = rs.getString(4);
+
+            usuario = new Usuario(docid, nombres, apellidos, correo);
+
+
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace(System.out);
+
+        } finally {
+            Conexion.closeConnection(rs);
+            Conexion.closeConnection(stmt);
+            Conexion.closeConnection(conn);
+        }
+
+        return usuario;
+
+    }
+
 
     public void insertarUsuario(String docid, String nombres, String apellidos,
                                 String correo, int perfil, String clave, String telefono,
@@ -198,6 +244,24 @@ public class DaoUsuario {
             Conexion.closeConnection(conn);
         }
 
+    }
+
+
+    public Optional<Usuario> getObjetoUsuario(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        if(usuario != null){
+            return Optional.of(usuario);
+        }
+        return Optional.empty();
+    }
+
+    public void cerrarSesion(HttpServletRequest request) {
+        Optional<Usuario> usuarioOptional = getObjetoUsuario(request);
+        if (usuarioOptional.isPresent()) {
+            HttpSession session = request.getSession();
+            session.invalidate();
+        }
     }
 
 

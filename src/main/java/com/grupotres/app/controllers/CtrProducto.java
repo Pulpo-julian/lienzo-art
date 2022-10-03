@@ -89,7 +89,7 @@ public class CtrProducto extends HttpServlet {
         //esta variable contiene la ruta donde se ubica el proyecto pero no donde se desplega el servidor
         String urlBase = System.getProperty("user.home");
 
-        String urlCarpetaImagenes = urlBase + "\\git\\LienzoArt\\src\\main\\webapp\\imagenesProductos\\";
+        String urlCarpetaImagenes = urlBase + "\\IdeaProjects\\lienzo-art\\src\\main\\webapp\\imagenesProductos\\";
 
         File carpetaImagenes = new File(urlCarpetaImagenes);
 

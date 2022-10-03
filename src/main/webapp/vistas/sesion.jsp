@@ -38,13 +38,13 @@
 			
 				<a href="${pageContext.request.contextPath}/controlprincipal">
 					<img src="img/logo.png">
-				</a>	
+				</a>
 				
 			</div>
 		
 			<div class="formulario col-6">
 			
-				<form action="${pageContext.request.contextPath}/formulariousuario" method="post">
+				<form action="${pageContext.request.contextPath}/iniciar-sesion" method="post">
 				
 					<h1>Iniciar sesión</h1>
 					

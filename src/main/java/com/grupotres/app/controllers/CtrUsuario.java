@@ -14,17 +14,19 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import com.grupotres.app.dao.DaoCategoria;
 import com.grupotres.app.dao.DaoProducto;
 import com.grupotres.app.dao.DaoUsuario;
+import jakarta.servlet.http.HttpSession;
 
 //import dao.DaoUsuario;
 
 /**
  * Servlet implementation class CtrUsuario
  */
-@WebServlet("/formulariousuario")
+@WebServlet({"/formulariousuario", "/iniciar-sesion", "/usuario-config"})
 public class CtrUsuario extends HttpServlet {
 
 
@@ -42,29 +44,21 @@ public class CtrUsuario extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-		/*
-		String cedula = request.getParameter("cedula");
 
-		PrintWriter out = response.getWriter();
+        DaoUsuario daoUsuario = new DaoUsuario();
+        Optional<Usuario> usuarioOptional = daoUsuario.getObjetoUsuario(request);
 
-		try {
+        String servletPath = request.getServletPath();
 
-			DaoUsuario daoUsuario = new DaoUsuario();
-			Usuario usuario = daoUsuario.buscarUsuario(cedula);
-			//getServletContext().getRequestDispatcher("CrudNuevoLienzoArto/usuarioCrud/usuarioFormulario.jsp").forward(request, response);
+        boolean esConfig = servletPath.equals("/usuario-config");
 
-			out.print("la cedula del usuario es: " + usuario.getDocid());
-			out.print("el nombre del usuario es: " + usuario.getNombres());
-			out.print("los apellidos del usuario son: " + usuario.getApellidos());
-			out.print("el correo del usuario es: " + usuario.getCorreo());
+        //valido que haya sesion abierta y sea la ruta indicada
+        if(esConfig && usuarioOptional.isPresent()){
 
-		} catch (Exception e) {
-			e.printStackTrace(System.out);
-		}
-		*/
+            getServletContext().getRequestDispatcher("/usuarioCrud/opcionesUsuario.jsp").forward(request, response);
 
-        //response.getWriter().append("Served at: ").append(request.getContextPath());
+        }
+
     }
 
     /**
@@ -73,7 +67,7 @@ public class CtrUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
 
-
+        String servletPath = request.getServletPath();
 
         String decision = request.getParameter("crud");
 
@@ -83,40 +77,26 @@ public class CtrUsuario extends HttpServlet {
 
         String btnsesion = request.getParameter("botonsesion");
 
-        // validacion provisional de sesion
-        if(sesion != null) {
-
+        if(servletPath.equals("/iniciar-sesion")){
             String correo = request.getParameter("correo");
-
             String password = request.getParameter("password");
 
+            DaoUsuario daoUsuario = new DaoUsuario();
+            Usuario usuario = daoUsuario.buscarUsuarioPorCorreoPassword(correo, password);
+            System.out.println(usuario);
 
-            // se debe renderizar productos y categorias otra vez
-            try {
+            if(usuario != null){
 
-                DaoProducto daoPro = new DaoProducto();
-                DaoCategoria daoCat = new DaoCategoria();
+                HttpSession session = request.getSession();
+                session.setAttribute("usuario", usuario);
 
-                List<Producto> productos = null;
-
-                List<Categoria> categorias = daoCat.listar();
-
-                request.setAttribute("productos", productos);
-                request.setAttribute("categorias", categorias);
-
-
-
-                getServletContext().getRequestDispatcher("/vistaSesionIniciada/vistasesioniniciada.jsp").forward(request, response);
-
-            } catch (Exception e) {
-
-                e.printStackTrace(System.out);
+                response.sendRedirect(request.getContextPath() + "/controlprincipalsesion");
 
             }
 
 
-        }
 
+        }
 
         if(decision != null && decision.equals("Crear")) {
 
@@ -220,21 +200,11 @@ public class CtrUsuario extends HttpServlet {
 
             }
 
-
-
-
-
-
-
         }
-
-
-
 
         if (decision != null && decision.equals("eliminar")) {
 
             String cedula = request.getParameter("cedula");
-
 
             try {
 
@@ -247,15 +217,11 @@ public class CtrUsuario extends HttpServlet {
                 e.printStackTrace(System.out);
             }
 
-
-
         }
-
 
         if(decision != null && decision.equals("listar")) {
 
             try {
-
 
                 DaoUsuario daoUsuario = new DaoUsuario();
                 List<Usuario> listaU = daoUsuario.listar();
@@ -312,8 +278,6 @@ public class CtrUsuario extends HttpServlet {
 
                 request.getRequestDispatcher("/usuarioCrud/verUsuario.jsp").forward(request, response);
 
-
-
             } catch (Exception e) {
 
                 e.printStackTrace(System.out);
@@ -322,59 +286,6 @@ public class CtrUsuario extends HttpServlet {
 
         }
 
-
-        if(btnsesion != null && btnsesion.equalsIgnoreCase("Iniciar sesión")) {
-
-
-            try {
-
-                DaoProducto daoPro = new DaoProducto();
-                DaoCategoria daoCat = new DaoCategoria();
-
-                List<Producto> productos = null;
-
-
-                List<Categoria> categorias = daoCat.listar();
-                productos = daoPro.listar();
-
-                request.setAttribute("productos", productos);
-                request.setAttribute("categorias", categorias);
-
-                getServletContext().getRequestDispatcher("/vistaSesionIniciada/vistasesioniniciada.jsp").forward(request, response);
-
-
-
-            } catch (Exception e) {
-
-                e.printStackTrace(System.out);
-
-            }
-
-
-
-
-
-        }
-
     }
-
-    @Override
-    protected void doTrace(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-
-    @Override
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-
-    @Override
-    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-
 
 }
