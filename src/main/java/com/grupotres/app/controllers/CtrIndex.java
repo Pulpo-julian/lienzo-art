@@ -1,5 +1,7 @@
 package com.grupotres.app.controllers;
 
+import com.grupotres.app.dao.DaoUsuario;
+import com.grupotres.app.modelos.Usuario;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -17,6 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.grupotres.app.conexion.Conexion;
 import com.grupotres.app.dao.DaoCategoria;
@@ -25,7 +28,7 @@ import com.grupotres.app.dao.DaoProducto;
 /**
  * Servlet implementation class CtrIndex
  */
-@WebServlet("/controlprincipal")
+@WebServlet({"/controlprincipal", "/controlprincipalsesion", "/cerrarsesion"})
 public class CtrIndex extends HttpServlet {
 
 
@@ -53,7 +56,19 @@ public class CtrIndex extends HttpServlet {
         //ya que no se envia ningun paramertro
         String accion = request.getParameter("accion");
 
+        String servletPath = request.getServletPath();
 
+        boolean esSesion = servletPath.equals("/controlprincipalsesion");
+
+        boolean esCerrarSesion = servletPath.equals("/cerrarsesion");
+
+        boolean esControlPrincipal = servletPath.equals("/controlprincipal");
+
+        if(esCerrarSesion){
+            DaoUsuario daoUsuario = new DaoUsuario();
+            daoUsuario.cerrarSesion(request);
+            response.sendRedirect(request.getContextPath() + "/controlprincipal");
+        }
 
 
         try {
@@ -89,10 +104,14 @@ public class CtrIndex extends HttpServlet {
             request.setAttribute("productos", productos);
             request.setAttribute("categorias", categorias);
 
+            DaoUsuario daoUsuario = new DaoUsuario();
+            Optional<Usuario> usuarioOptional = daoUsuario.getObjetoUsuario(request);
 
-            response.setContentType("text/html; charset=UTF-8");
-
-            getServletContext().getRequestDispatcher("/vistas/vistaprincipal.jsp").forward(request, response);
+            if(!usuarioOptional.isPresent()) {
+                getServletContext().getRequestDispatcher("/vistas/vistaprincipal.jsp").forward(request, response);
+            } else {
+                getServletContext().getRequestDispatcher("/vistaSesionIniciada/vistasesioniniciada.jsp").forward(request, response);
+            }
 
         } catch (Exception e) {
 

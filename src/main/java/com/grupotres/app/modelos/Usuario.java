@@ -6,6 +6,7 @@ public class Usuario {
     private String nombres;
     private String apellidos;
     private String correo;
+    private int perfil;
     private String password;
     private String telefono;
     private String ciudad;
@@ -31,10 +32,17 @@ public class Usuario {
         this.correo = correo;
     }
 
-
-
-
-
+    public Usuario(String docid, String nombres, String apellidos, String correo, int perfil, String telefono, String ciudad, String codigoPostal, String direccion) {
+        this.docid = docid;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.correo = correo;
+        this.perfil = perfil;
+        this.telefono = telefono;
+        this.ciudad = ciudad;
+        this.codigoPostal = codigoPostal;
+        this.direccion = direccion;
+    }
 
     public Usuario(String docid, String nombres, String apellidos, String correo, String password, String telefono,
                    String ciudad, String codigoPostal, String direccion) {
@@ -113,7 +121,13 @@ public class Usuario {
         return direccion;
     }
 
+    public int getPerfil() {
+        return perfil;
+    }
 
+    public void setPerfil(int perfil) {
+        this.perfil = perfil;
+    }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
@@ -153,7 +167,7 @@ public class Usuario {
                 ", nombres=" + nombres +
                 ", apellidos=" + apellidos +
                 ", correo=" + correo +
-                ", password=" + password +
+                ", perfil=" + perfil +
                 ", telefono=" + telefono +
                 ", ciudad=" + ciudad +
                 ", codigoPostal=" + codigoPostal +
