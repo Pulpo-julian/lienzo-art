@@ -26,5 +26,21 @@
 
     <% out.println( ((Usuario)request.getSession().getAttribute("usuario")).getNombres()); %>
 
+    <div class="usuario_update col-2">
+
+        <form action="${pageContext.request.contextPath}/usuario-config-datos">
+            <input type="submit" value="Actualiza tus datos" class="btniniciarsesion">
+        </form>
+
+    </div>
+
+    <div class="usuario_update col-2">
+
+        <form action="${pageContext.request.contextPath}/usuario-config-delete">
+            <input type="submit" value="Cerrar cuenta" class="btniniciarsesion">
+        </form>
+
+    </div>
+
     </body>
 </html>

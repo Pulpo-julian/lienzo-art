@@ -23,15 +23,15 @@ public class DaoUsuario {
 
     private static final String SQL_SELECT = "SELECT docid, nombres, apellidos, correo FROM tblusuario;";
 
-    private static final String SQL_SELECT_DOCID = "SELECT docid, nombres, apellidos, correo FROM tblusuario WHERE docid = ?;";
+    private static final String SQL_SELECT_DOCID = "SELECT docid, nombres, apellidos, correo, perfil, telefono, ciudad, codigopostal, direccion FROM tblusuario WHERE docid = ?;";
 
     private static final String SQL_INSERT = "INSERT INTO tblusuario VALUES(?,?,?,?,?,(AES_ENCRYPT(?, \"lienzoart22\")),?,?,?,?);";
 
-    private static final String SQL_UPDATE = "UPDATE tblusuario SET nombres = ?, apellidos = ?, correo = ? WHERE docid = ?;";
+    private static final String SQL_UPDATE = "UPDATE tblusuario SET docid = ?, nombres = ?, apellidos = ?, correo = ? , telefono = ?, ciudad = ?, codigoPostal = ?, direccion = ? WHERE docid = ?;";
 
     private static final String SQL_DELETE = "DELETE FROM tblusuario WHERE docid = ?;";
 
-    private static final String SQL_SELECT_BY_MAIL_PASS = "SELECT docid, nombres, apellidos, correo FROM tblusuario WHERE correo = ? AND ? = AES_DECRYPT(clave, \"lienzoart22\");";
+    private static final String SQL_SELECT_BY_MAIL_PASS = "SELECT docid, nombres, apellidos, correo, perfil, telefono, ciudad, codigopostal, direccion FROM tblusuario WHERE correo = ? AND ? = AES_DECRYPT(clave, \"lienzoart22\");";
 
 
 
@@ -93,8 +93,12 @@ public class DaoUsuario {
             String nombres = rs.getString(2);
             String apellidos = rs.getString(3);
             String correo = rs.getString(4);
-
-            usuario = new Usuario(docid, nombres, apellidos, correo);
+            int perfil = rs.getInt(5);
+            String telefono = rs.getString(6);
+            String ciudad = rs.getString(7);
+            String codigoPostal = rs.getString(8);
+            String direccion = rs.getString(9);
+            usuario = new Usuario(docid, nombres, apellidos, correo, perfil, telefono, ciudad, codigoPostal, direccion);
 
 
 
@@ -113,7 +117,7 @@ public class DaoUsuario {
 
     }
 
-    public Usuario buscarUsuarioPorCorreoPassword(String doc, String password){
+    public Usuario buscarUsuarioPorCorreoPassword(String correo, String password){
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -123,7 +127,7 @@ public class DaoUsuario {
 
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT_BY_MAIL_PASS);
-            stmt.setString(1, doc);
+            stmt.setString(1, correo);
             stmt.setString(2, password);
             rs = stmt.executeQuery();
 
@@ -131,12 +135,14 @@ public class DaoUsuario {
             String docid = rs.getString(1);
             String nombres = rs.getString(2);
             String apellidos = rs.getString(3);
-            String correo = rs.getString(4);
+            String correoResivido = rs.getString(4);
+            int perfil = rs.getInt(5);
+            String telefono = rs.getString(6);
+            String ciudad = rs.getString(7);
+            String codigoPostal = rs.getString(8);
+            String direccion = rs.getString(9);
 
-            usuario = new Usuario(docid, nombres, apellidos, correo);
-
-
-
+            usuario = new Usuario(docid, nombres, apellidos, correoResivido, perfil, telefono, ciudad, codigoPostal, direccion);
 
         } catch (Exception e) {
 
@@ -190,25 +196,32 @@ public class DaoUsuario {
 
     }
 
-    public void actualizarUsuario(String docid ,String nombres, String apellidos, String correo) {
+    public Usuario actualizarUsuario(String docid ,String nombres, String apellidos, String correo,
+                                  String telefono, String ciudad, String codPostal, String direccion, String idActual) {
 
 
         Connection conn = null;
         PreparedStatement stmt = null;
-
+        Usuario usuario = null;
 
         try {
 
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, nombres);
-            stmt.setString(2, apellidos);
-            stmt.setString(3, correo);
-            stmt.setString(4, docid);
+            stmt.setString(1, docid);
+            stmt.setString(2, nombres);
+            stmt.setString(3, apellidos);
+            stmt.setString(4, correo);
+            stmt.setString(5, telefono);
+            stmt.setString(6, ciudad);
+            stmt.setString(7, codPostal);
+            stmt.setString(8, direccion);
+            stmt.setString(9, idActual);
             stmt.executeUpdate();
 
+            usuario = buscarUsuario(docid);
 
-
+            return usuario;
 
         } catch (Exception e) {
 
@@ -218,6 +231,8 @@ public class DaoUsuario {
             Conexion.closeConnection(stmt);
             Conexion.closeConnection(conn);
         }
+
+        return usuario;
 
     }
 
