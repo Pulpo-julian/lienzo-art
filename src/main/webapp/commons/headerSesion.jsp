@@ -29,7 +29,7 @@
         </div>
     
        	<div class="micuenta dropdown col-1">   	
-        	<button type="button" class="btn btn-secondary dropdown-toggle" id="btnmicuenta" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        	<button type="button" class="btn btn-secondary dropdown-toggle"  id="btnmicuenta" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         		Mi cuenta
         	</button>
         	<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
