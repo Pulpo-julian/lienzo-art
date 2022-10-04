@@ -29,7 +29,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+<link rel="stylesheet" href="estilos/estilosactualizarusuario.css">
 
 <title>Actualiza tus datos en LienzoArt</title>
 </head>
@@ -38,14 +38,15 @@
 	<!-- HEADER -->
 	<jsp:include page="../commons/headerSesion.jsp"></jsp:include>
 
-	<div>
+	<div class="formulario">
 
 
-		<h1>Actualizar Usuario</h1>
-		<form action="${pageContext.request.contextPath}/formulariousuario" method="post" class="form_usuario">
+		<h1 class="title">Actualizar Usuario</h1>
+		<form action="${pageContext.request.contextPath}/formulariousuario" method="post" class="form_usuario row">
 
-			<div>
-				<label>Cedula</label> <input type="text" value="<% if((errores != null && errores.containsKey("cedula")) || (errores != null && !errores.containsKey("cedula"))){
+			<div class="col-6 mt-3">
+				<label class="form-label">Cedula</label>
+				<input class="form-control" type="text" value="<% if((errores != null && errores.containsKey("cedula")) || (errores != null && !errores.containsKey("cedula"))){
 					out.print(cedula);
 				} else {
 					out.print(usuario.getDocid());
@@ -64,8 +65,9 @@
 			</div>
 
 
-			<div>
-				<label>Nombres</label> <input type="text" value="<% if((errores != null && errores.containsKey("nombre")) || (errores != null && !errores.containsKey("nombre"))){
+			<div class="col-6 mt-3">
+				<label class="form-label">Nombres</label>
+				<input class="form-control" type="text" value="<% if((errores != null && errores.containsKey("nombre")) || (errores != null && !errores.containsKey("nombre"))){
 					out.print(nombre);
 				} else {
 					out.print(usuario.getNombres());
@@ -84,9 +86,10 @@
 
 			</div>
 
-			<div>
-				<label>Apellidos</label> <input type="text"
-												value="<% if((errores != null && errores.containsKey("apellidos")) || (errores != null && !errores.containsKey("apellidos"))){
+			<div class="col-6 mt-3">
+				<label class="form-label">Apellidos</label>
+				<input class="form-control" type="text"
+						 						value="<% if((errores != null && errores.containsKey("apellidos")) || (errores != null && !errores.containsKey("apellidos"))){
 					out.print(apellidos);
 				} else {
 					out.print(usuario.getApellidos());
@@ -103,10 +106,11 @@
 
 			</div>
 
-			<div>
+			<div class="col-6 mt-3">
 			
 			
-				<label>Correo</label> <input type="text" value="<% if((errores != null && errores.containsKey("correo")) || (errores != null && !errores.containsKey("correo"))){
+				<label class="form-label">Correo</label>
+				<input class="form-control" type="text" value="<% if((errores != null && errores.containsKey("correo")) || (errores != null && !errores.containsKey("correo"))){
 					out.print(correo);
 				} else {
 					out.print(usuario.getCorreo());
@@ -144,10 +148,11 @@
 
 			<%} %>
 
-			<div>
+			<div class="col-6 mt-3">
 
 
-				<label>Telefono</label> <input type="text" value="<% if((errores != null && errores.containsKey("telefono")) || (errores != null && !errores.containsKey("telefono"))){
+				<label class="form-label">Telefono</label>
+				<input class="form-control" type="text" value="<% if((errores != null && errores.containsKey("telefono")) || (errores != null && !errores.containsKey("telefono"))){
 					out.print(telefono);
 				} else {
 					out.print(usuario.getTelefono());
@@ -166,10 +171,10 @@
 
 			</div>
 
-			<div>
+			<div class="col-6 mt-3">
 
 
-				<label>Seleccione su Ciudad: </label>
+				<label class="form-label">Seleccione su Ciudad: </label>
 
 				<select name="ciudades" id="" class="form-select" required>
 					<%for(int i = 0; i < ciudades.size(); i++) {
@@ -189,10 +194,11 @@
 
 			</div>
 
-			<div>
+			<div class="col-6 mt-3">
 
 
-				<label>Codigo Postal</label> <input type="text" value="<% if((errores != null && errores.containsKey("codigoPostal")) || (errores != null && !errores.containsKey("codigoPostal"))){
+				<label class="form-label">Código Postal</label>
+				<input class="form-control" type="text" value="<% if((errores != null && errores.containsKey("codigoPostal")) || (errores != null && !errores.containsKey("codigoPostal"))){
 					out.print(codigoPostal);
 				} else {
 					out.print(usuario.getCodigoPostal());
@@ -211,10 +217,11 @@
 
 			</div>
 
-			<div>
+			<div class="col-6 mt-3">
 
 
-				<label>Direccion</label> <input type="text" value="<% if((errores != null && errores.containsKey("direccion")) || (errores != null && !errores.containsKey("direccion"))){
+				<label class="form-label">Direccion</label>
+				<input class="form-control" type="text" value="<% if((errores != null && errores.containsKey("direccion")) || (errores != null && !errores.containsKey("direccion"))){
 					out.print(direccion);
 				} else {
 					out.print(usuario.getDireccion());
@@ -233,7 +240,7 @@
 
 			</div>
 
-			<input type="submit" name="crud" value="actualizar" class="boton_mov">
+			<input id="btn" type="submit" name="crud" value="actualizar" class="btn btn-primary boton_mov mt-4">
 
 		</form>
 
