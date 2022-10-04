@@ -2,15 +2,14 @@ header{
 	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 	font-size: 18px;
 	background-color: #59aed6;
-	width: 101.25%;
-	height: auto;
+	width: 101.28%;
 }
 
 .logo img{ /*Estilos para el logo en el header*/
 	width: 135px;
 	height: 65px;
     align-items: center;
-    margin-left: 50px;
+    margin-left: 20px;
 }
 
 .buscador{ /*Estilos para el espaciado de la barra de b�squeda*/
@@ -28,38 +27,33 @@ header{
 	margin-top: 7px;
 }
 
-.buscador .btn{
-	transform: translateY(-40px);
+#btnbuscar button{ /*Estilos y posicionamiento para el botón de buscar*/
+	transform: translateY(-47px);
 	position: absolute;
-}
-
-.buscador button{ /*Estilos y posicionamiento del bot�n de b�squeda*/
 	border: none;
-	background-color: #FFFFFF;
+	background-color: rgba(0, 0, 0, 0);
 }
 
 #btnmicuenta{ /*Estilos y posicionamiento del bot�n de mi cuenta*/
-	font-size: 15;
+	font-size: 15px;
     font-weight: bold;
     height: 40px;
     color: #000000;
     background-color: #84e3fd;
     border-radius: 10px;
     border: none;
-    margin-left: -3rem;
     margin-top: 12px;
 }
 
 .btncarrocompras{ /*Estilos y posicionamiento del bot�n de carro de compras*/
     text-decoration: none;
-    font-size: 15;
+    font-size: 15px;
     font-weight: bold;
     height: 40px;
     color: #000000;
     background-color: #84e3fd;
     border-radius: 10px;
     border: none;
-    margin-left: -5rem;
     margin-top: 12px;
 }
 
@@ -95,23 +89,23 @@ header{
 	}
 }
 
-@media (min-width: 1390px){ /*Estilos para una pantalla de 1390 pixeles o menor*/
+@media (max-width: 1390px){ /*Estilos para una pantalla de 1390 pixeles o menor*/
 	.micuenta{
 	margin-left: -36px;
 	}
 	
 	.buscador input{
-	width: 600px;
+	width: 550px;
 	}
 }
 
-@media (min-width: 1290px){ /*Estilos para una pantalla de 1290 pixeles o menor*/
+@media (max-width: 1290px){ /*Estilos para una pantalla de 1290 pixeles o menor*/
 	.micuenta{
 	margin-left: -36px;
 	}
 	
 	.buscador input{
-	width: 450px;
+	width: 400px;
 	}
 }
 
@@ -121,7 +115,7 @@ header{
 	}
 	
 	.buscador input{
-	width: 400px;
+	width: 350px;
 	}
 }
 
