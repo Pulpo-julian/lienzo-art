@@ -15,32 +15,30 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <title>opciones de usuario</title>
+        <link rel="stylesheet" href="estilos/opcionesusuario.css">
+        <title>Opciones de usuario</title>
     </head>
     <body>
 
     <!-- HEADER -->
     <jsp:include page="../commons/headerSesion.jsp"></jsp:include>
 
-    <h1>esta el la pagina de configuracion del usuario: </h1>
+    <div class="container">
+        <h1>Configuracion del usuario: </h1>
 
-    <% out.println( ((Usuario)request.getSession().getAttribute("usuario")).getNombres()); %>
+        <% out.println( ((Usuario)request.getSession().getAttribute("usuario")).getNombres()); %>
 
-    <div class="usuario_update col-2">
+        <div class="usuario_update col-2">
+            <form action="${pageContext.request.contextPath}/usuario-config-datos">
+                <input type="submit" value="Actualiza tus datos" class="btniniciarsesion">
+            </form>
+        </div>
 
-        <form action="${pageContext.request.contextPath}/usuario-config-datos">
-            <input type="submit" value="Actualiza tus datos" class="btniniciarsesion">
-        </form>
-
+        <div class="usuario_update col-2">
+            <form action="${pageContext.request.contextPath}/usuario-config-delete">
+                <input type="submit" value="Cerrar cuenta" class="btniniciarsesion">
+            </form>
+        </div>
     </div>
-
-    <div class="usuario_update col-2">
-
-        <form action="${pageContext.request.contextPath}/usuario-config-delete">
-            <input type="submit" value="Cerrar cuenta" class="btniniciarsesion">
-        </form>
-
-    </div>
-
     </body>
 </html>

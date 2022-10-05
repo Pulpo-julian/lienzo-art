@@ -137,7 +137,7 @@
 			<%if(usuario.getPerfil() == 3){%>
 
 				<div>
-					<p>por ahora eres un usuario comprador, crea una tienda para convertirte en Vendedor</p>
+					<p>Por ahora eres un usuario comprador, crea una tienda para convertirte en Vendedor</p>
 				</div>
 
 			<%} else  if (usuario.getPerfil() == 2) {%>
