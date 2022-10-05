@@ -100,9 +100,6 @@ public class DaoUsuario {
             String direccion = rs.getString(9);
             usuario = new Usuario(docid, nombres, apellidos, correo, perfil, telefono, ciudad, codigoPostal, direccion);
 
-
-
-
         } catch (Exception e) {
 
             e.printStackTrace(System.out);

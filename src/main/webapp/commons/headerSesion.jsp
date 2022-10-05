@@ -30,7 +30,7 @@
         </div>
 
         <!-- Mi cuenta boton -->
-       	<div class="micuenta dropdown col-1">
+       	<div class="micuenta dropdown col-2">
         	<button type="button" class="btn btn-secondary dropdown-toggle"  id="btnmicuenta" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         		Mi cuenta
         	</button>
@@ -41,7 +41,7 @@
         	</ul>
        	</div>
         
-        <div class="carrocompras col-1">
+        <div class="carrocompras col-2">
         
              <form action="${pageContext.request.contextPath}/controlsesion" method="post">
                 <input type="submit" name="carrocompras" value="Carrocompras" class="btncarrocompras">

@@ -2,8 +2,8 @@ header{
 	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 	font-size: 18px;
 	background-color: #59aed6;
-	width: 101.28%;
 	height: 4rem;
+	width: 99%;
 }
 
 .logo img{ /*Estilos para el logo en el header*/
@@ -21,13 +21,16 @@ header{
 	border: none;
 }
 .buscador input{ /*Estilos para la barra de b�squeda*/
-	width: 100%;
 	height: 40px;
 	outline: none;
 	border: none;
 	border-radius: 30px;
 	padding: 0 45px;
 	margin-top: 7px;
+}
+
+#btnbuscar{
+	background-color: rgba(0, 0, 0, 0);
 }
 
 #btnbuscar button{ /*Estilos y posicionamiento para el botón de buscar*/
@@ -73,13 +76,13 @@ header{
 
 @media (max-width: 1850px){ /*Estilos para una pantalla de 1850 pixeles o menor*/
 	.buscador input{
-	width: 700px;
+	width: 600px;
 	}
 }
 
 @media (max-width: 1520px){ /*Estilos para una pantalla de 1520 pixeles o menor*/
 	.buscador input{
-	width: 650px;
+	width: 600px;
 	}
 }
 

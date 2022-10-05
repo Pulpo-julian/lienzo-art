@@ -19,7 +19,7 @@
             <a href="${pageContext.request.contextPath}/controlprincipal"> <img src="img/logoindex.png"> </a>
         </div>
     
-        <div class="buscador col-2">
+        <div class="buscador col-6">
         	
         	<form action="${pageContext.request.contextPath}/controlprincipal" id="buscarForm">
         		<input type="search" id="buscador" name="buscar" class="buscar" placeholder="Buscar..." value="<%if(buscar != null && !buscar.isEmpty()) {out.println(buscar);} %>">
@@ -31,7 +31,7 @@
         </div>
     
     
-        <div class="usuario_login col">
+        <div class="usuario_login col-1">
         
              <form action="${pageContext.request.contextPath}/controlsesion" method="post">
                 <input type="submit" name="sesion" value="Iniciar sesión" class="btniniciarsesion">
@@ -39,7 +39,7 @@
     
         </div>
         
-        <div class="usuario_register col">
+        <div class="usuario_register col-1">
         
              <form action="${pageContext.request.contextPath}/controlsesion" method="post">
                 <input type="submit" name="registro" value="Regístrate" class="btncrearusuario">
@@ -47,11 +47,11 @@
     
         </div>
 
-        <div class="carro_compras col">
+        <div class="carro_compras col-1">
 
             <form action="${pageContext.request.contextPath}/carro-compras.ss">
                 <input type="submit" name="carrocompras" value="carrocompras" class="btncarrocompras">
-                <%if(cantidadProductosAgregados != null && cantidadProductosAgregados != 0) {out.print(cantidadProductosAgregados);}%>
+                <%if(cantidadProductosAgregados != null){out.print(cantidadProductosAgregados);}%>
             </form>
 
         </div>
