@@ -64,7 +64,7 @@
 				<div class="producto card" style="border-radius: 10px;">
 					
 					<div class="muestra">
-						<a href="${pageContext.request.contextPath}/formularioproducto?">
+						<a href="${pageContext.request.contextPath}/detalle-producto?codpro=<%out.print(producto.getCodigo());%>">
 							<img alt="#" src="<% out.println(producto.getUrlImagen()); %>" class="img">
 						</a>
 						
@@ -83,7 +83,7 @@
 						
 						<div class="preciocarrito">
 							<a href="#" class="precio"><% out.print("$" + producto.getPrecio()); %></a>
-							<a href="#" class="carrito"><i class="fas fa-cart-plus"></i></a>
+							<a href="${pageContext.request.contextPath}/guardar-producto?codpro=<%out.print(producto.getCodigo());%>" class="carrito"><i class="fas fa-cart-plus"></i></a>
 						</div>
 						
 					</div>

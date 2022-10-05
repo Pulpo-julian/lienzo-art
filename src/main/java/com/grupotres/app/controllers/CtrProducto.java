@@ -1,5 +1,7 @@
 package com.grupotres.app.controllers;
 
+import com.grupotres.app.modelos.Producto;
+import com.grupotres.app.modelos.Usuario;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,6 +21,7 @@ import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import com.grupotres.app.dao.DaoCategoria;
 import com.grupotres.app.dao.DaoProducto;
@@ -28,7 +31,7 @@ import com.grupotres.app.dao.DaoUsuario;
  * Servlet implementation class CtrProducto
  */
 @MultipartConfig
-@WebServlet("/formularioproducto")
+@WebServlet({"/formularioproducto", "/detalle-producto"})
 public class CtrProducto extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -45,7 +48,35 @@ public class CtrProducto extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        doPost(request, response);
+        String servlet = request.getServletPath();
+
+        if(servlet.equals("/formularioproducto")){
+            doPost(request, response);
+        }
+
+        if(servlet.contains("/detalle-producto")){
+
+            int codigo = Integer.parseInt(request.getParameter("codpro"));
+
+            DaoProducto daoProducto = new DaoProducto();
+            Producto producto = daoProducto.buscarProducto(codigo);
+
+            request.setAttribute("producto", producto);
+
+            DaoUsuario daoUsuario = new DaoUsuario();
+            Optional<Usuario> usuarioOptional = daoUsuario.getObjetoUsuario(request);
+
+            if(usuarioOptional.isPresent()){
+                getServletContext().getRequestDispatcher("/productosCrud/vistaProductoConSesion.jsp").forward(request, response);
+            } else {
+                getServletContext().getRequestDispatcher("/productosCrud/vistaProductoSinSesion.jsp").forward(request, response);
+            }
+
+            //response.getWriter().println("se ha solicitado el codigo del producto: " + codigo);
+
+        }
+
+
     }
 
     /**
