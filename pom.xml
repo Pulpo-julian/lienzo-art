@@ -12,6 +12,9 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <!-- estas 2 etiquetas van dentro de properties -->
+        <project.build.sourceEncodigin>UTF-8</project.build.sourceEncodigin>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
@@ -23,17 +26,17 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--Esta es la dependencia para hacer conexion con Mysql-->
+        <!-- Esta es la dependencia para hacer conexion con Mysql -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.30</version>
         </dependency>
 
-
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
 
             <plugin>
@@ -61,11 +64,12 @@
                 </configuration>
             </plugin>
 
-
-
-
-
         </plugins>
     </build>
+
+
+
+
+
 
 </project>

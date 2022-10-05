@@ -1,0 +1,94 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+.header {
+	margin-top: 25px;
+}
+
+.container {
+    border: 1px solid black;
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    height: 95vh;
+}
+
+.buscador li {
+    list-style: none;
+    padding: 8px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 17px;
+}
+
+.buscador li a {
+    display: flex; 
+    text-decoration: none;
+}
+
+.buscardor li a i{
+    margin-right: 10px;
+}
+
+.cabecera .logo img,
+.cabecera .usuario img {
+    width: 80px;
+    background-color: rgba(240, 248, 255, 0);
+}
+
+.cabecera {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid green;
+}
+
+.cabecera .lista ul li{
+    list-style: none;
+}
+
+.cabecera .lista ul li a {
+    text-decoration: none;
+    padding: 10px;
+}
+
+.cabecera .lista ul {
+    display: flex;
+}
+
+
+
+.usuario {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.usuario h5:hover{
+	cursor: pointer;
+	color: blue;
+}
+
+/* FORMULARIO INICIO SESION  */
+.formulario {
+	width: 500px;
+}
+
+.formulario form {
+	padding: 50px;
+	
+	border: 1px solid red;
+}
+
+.formulario .registro h6 {
+	text-align: center;
+	
+}
+
+
+
+

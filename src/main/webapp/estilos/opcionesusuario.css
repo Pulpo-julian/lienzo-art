@@ -1,20 +1,48 @@
-.container{
-    display: block;
-    width: 80%;
-    height: 80%;
+body{
+    background-color: #EFEFEF;
+    @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
+    font-family: 'Mukta', sans-serif;
+}
+
+.formulario{
+    width: 400px;
+    padding: 30px;
+    margin: auto;
+    border-radius: 7px;
+    box-shadow: 7px 13px 37px #000;
     background-color: #59aed6;
+    text-align:center;
 }
-
-.container h1{
-    text-align: center;
+.row{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
 }
-
-.usuario_update input{ /*Estilos para la barra de b�squeda*/
-    width: 100%;
-    height: 40px;
-    outline: none;
+.btniniciarsesion{
+    font-size: 20px;
     border: none;
+    background-color: #59aed6;
+    color: black;
+    width: 14rem;
+    height: 4rem;
+    margin-left: 3.2rem;
+    margin-top: 15px;
     border-radius: 30px;
-    padding: 0 45px;
-    margin-top: 7px;
+    font-weight: bold;
+}
+
+.btniniciarsesion{
+    background-color:#CCEAF4;
+    border: none;
+}
+
+.btniniciarsesion:hover{
+    background-color: #a3cad7;
+}
+
+
+
+#iconmain:hover{
+    cursor: pointer;
 }

@@ -20,24 +20,27 @@
     </head>
     <body>
 
-    <!-- HEADER -->
-    <jsp:include page="../commons/headerSesion.jsp"></jsp:include>
-
     <div class="container">
-        <h1>Configuracion del usuario: </h1>
+        <div class="row">
+            <div id="iconmain"class="col-6">
 
-        <% out.println( ((Usuario)request.getSession().getAttribute("usuario")).getNombres()); %>
+            <a href="${pageContext.request.contextPath}/controlprincipal">
+                <img src="img/logo.png">
+            </a>
 
-        <div class="usuario_update col-2">
-            <form action="${pageContext.request.contextPath}/usuario-config-datos">
-                <input type="submit" value="Actualiza tus datos" class="btniniciarsesion">
-            </form>
         </div>
-
-        <div class="usuario_update col-2">
-            <form action="${pageContext.request.contextPath}/usuario-config-delete">
-                <input type="submit" value="Cerrar cuenta" class="btniniciarsesion">
-            </form>
+            <div class="formulario col-6">
+                <div class="usuario_update col-2">
+                    <form action="${pageContext.request.contextPath}/usuario-config-datos">
+                        <input type="submit" value="Actualiza tus datos" class="btniniciarsesion">
+                    </form>
+                </div>
+                <div class="usuario_update col-2">
+                    <form action="${pageContext.request.contextPath}/usuario-config-delete">
+                        <input type="submit" value="Cerrar cuenta" class="btniniciarsesion">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     </body>

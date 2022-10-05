@@ -26,14 +26,8 @@
 
 </head>
 <body>
-
     <div class="container">
-    
-    
-
-	
 		<div class="row">
-		
 			<div id="iconmain"class="col-6">
 			
 				<a href="${pageContext.request.contextPath}/controlprincipal">
@@ -41,9 +35,7 @@
 				</a>
 				
 			</div>
-		
 			<div class="formulario col-6">
-			
 				<form action="${pageContext.request.contextPath}/iniciar-sesion" method="post">
 				
 					<h1>Iniciar sesión</h1>
@@ -67,30 +59,14 @@
 					<input type="submit" name="botonsesion" value="Iniciar sesión" class="btn btn-secondary col-11 m-3 text-dark">
 				
 				</form>
-				
 				<div class="registro">
-				
-	
 					<form action="${pageContext.request.contextPath}/controlsesion" method="post">
-						
 						<h6>¿No tienes una cuenta? <input type="submit" name="registro" id="btnregistro" value="Regístrate" class="boton_mov mt-3"> </h6>
-						<h6>¿Olvidaste tu contraseña? <input type="submit" name="sesion" id="btnregistro" value="Recupérala" class="boton_mov"> </h6>	
-						
-					</form>	
-				
+						<h6>¿Olvidaste tu contraseña? <input type="submit" name="sesion" id="btnregistro" value="Recupérala" class="boton_mov"> </h6>
+					</form>
 				</div>
-			
 			</div>
-			
-		
 		</div>
-
-
-
    	</div>
-    
-    
-
-    
 </body>
 </html>
