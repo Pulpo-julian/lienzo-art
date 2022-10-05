@@ -109,7 +109,6 @@ public class CtrIndex extends HttpServlet {
             Optional<Usuario> usuarioOptional = daoUsuario.getObjetoUsuario(request);
 
             if(!usuarioOptional.isPresent()) {
-                System.out.println(request.getAttribute("productosCarro"));
                 getServletContext().getRequestDispatcher("/vistas/vistaprincipal.jsp").forward(request, response);
             } else {
                 getServletContext().getRequestDispatcher("/vistaSesionIniciada/vistasesioniniciada.jsp").forward(request, response);
