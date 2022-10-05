@@ -15,32 +15,33 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <title>opciones de usuario</title>
+        <link rel="stylesheet" href="estilos/opcionesusuario.css">
+        <title>Opciones de usuario</title>
     </head>
     <body>
 
-    <!-- HEADER -->
-    <jsp:include page="../commons/headerSesion.jsp"></jsp:include>
+    <div class="container">
+        <div class="row">
+            <div id="iconmain"class="col-6">
 
-    <h1>esta el la pagina de configuracion del usuario: </h1>
+            <a href="${pageContext.request.contextPath}/controlprincipal">
+                <img src="img/logo.png">
+            </a>
 
-    <% out.println( ((Usuario)request.getSession().getAttribute("usuario")).getNombres()); %>
-
-    <div class="usuario_update col-2">
-
-        <form action="${pageContext.request.contextPath}/usuario-config-datos">
-            <input type="submit" value="Actualiza tus datos" class="btniniciarsesion">
-        </form>
-
+        </div>
+            <div class="formulario col-6">
+                <div class="usuario_update col-2">
+                    <form action="${pageContext.request.contextPath}/usuario-config-datos">
+                        <input type="submit" value="Actualiza tus datos" class="btniniciarsesion">
+                    </form>
+                </div>
+                <div class="usuario_update col-2">
+                    <form action="${pageContext.request.contextPath}/usuario-config-delete">
+                        <input type="submit" value="Cerrar cuenta" class="btniniciarsesion">
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="usuario_update col-2">
-
-        <form action="${pageContext.request.contextPath}/usuario-config-delete">
-            <input type="submit" value="Cerrar cuenta" class="btniniciarsesion">
-        </form>
-
-    </div>
-
     </body>
 </html>
