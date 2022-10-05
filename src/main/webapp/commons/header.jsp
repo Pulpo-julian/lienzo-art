@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <% String buscar = (String) request.getAttribute("buscar"); %>
+<% Integer cantidadProductosAgregados = (Integer) request.getAttribute("productosCarro"); %>
+
 <head>
     <meta charset="UTF-8">
     <!-- Bootstrap -->
@@ -43,6 +45,15 @@
                 <input type="submit" name="registro" value="Regístrate" class="btncrearusuario">
              </form>                                
     
+        </div>
+
+        <div class="usuario_register col-2">
+
+            <form action="${pageContext.request.contextPath}/carro-compras.ss" method="post">
+                <input type="submit" name="carrocompras" value="carrocompras" class="btncarrocompras">
+                <%if(cantidadProductosAgregados != null ) {out.print(cantidadProductosAgregados);}%>
+            </form>
+
         </div>
                     
     </header>
