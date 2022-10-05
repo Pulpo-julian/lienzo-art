@@ -6,6 +6,7 @@ import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -29,7 +30,7 @@ import com.grupotres.app.dao.DaoProducto;
 /**
  * Servlet implementation class CtrIndex
  */
-@WebServlet({"/controlprincipal", "/controlprincipalsesion", "/cerrarsesion"})
+@WebServlet({"/controlprincipal", "/controlprincipalsesion", "/cerrarsesion", "/index.html"})
 public class CtrIndex extends HttpServlet {
 
 
@@ -65,10 +66,16 @@ public class CtrIndex extends HttpServlet {
 
         boolean esControlPrincipal = servletPath.equals("/controlprincipal");
 
+        boolean esContarProductosCarro = servletPath.equals("/index.html");
+
         if(esCerrarSesion){
             DaoUsuario daoUsuario = new DaoUsuario();
             daoUsuario.cerrarSesion(request);
             response.sendRedirect(request.getContextPath() + "/controlprincipal");
+        }
+
+        if(esContarProductosCarro){
+            doPost(request, response);
         }
 
 
@@ -135,7 +142,24 @@ public class CtrIndex extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        Cookie[] cookies = request.getCookies();
+        int indexProducto = 0;
 
+        boolean contieneProductos = false;
+
+        if (cookies != null) {
+
+            for(int i = 0; i < cookies.length; i++){
+                if((cookies[i].getName()).contains("producto")){
+                    ++indexProducto;
+                }
+            }
+
+        }
+
+        request.setAttribute("productosCarro", Integer.valueOf(indexProducto));
+
+        getServletContext().getRequestDispatcher("/controlprincipal").forward(request, response);
 
 
     }

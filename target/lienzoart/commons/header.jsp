@@ -51,7 +51,7 @@
 
             <form action="${pageContext.request.contextPath}/carro-compras.ss">
                 <input type="submit" name="carrocompras" value="carrocompras" class="btncarrocompras">
-                <%if(cantidadProductosAgregados != null ) {out.print(cantidadProductosAgregados);}%>
+                <%if(cantidadProductosAgregados != null && cantidadProductosAgregados != 0) {out.print(cantidadProductosAgregados);}%>
             </form>
 
         </div>
