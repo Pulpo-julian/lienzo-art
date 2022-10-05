@@ -49,8 +49,8 @@
 
         <div class="carro_compras col">
 
-            <form action="${pageContext.request.contextPath}/carro-compras.ss" method="post">
-                <input type="submit" name="carrocompras" value="carrocompras" class="btncrearusuario">
+            <form action="${pageContext.request.contextPath}/carro-compras.ss">
+                <input type="submit" name="carrocompras" value="carrocompras" class="btncarrocompras">
                 <%if(cantidadProductosAgregados != null ) {out.print(cantidadProductosAgregados);}%>
             </form>
 
