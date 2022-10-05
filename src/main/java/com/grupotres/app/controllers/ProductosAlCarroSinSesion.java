@@ -8,24 +8,37 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-@WebServlet("/guardar-producto")
+@WebServlet({"/guardar-producto", "/carro-compras.ss"})
 public class ProductosAlCarroSinSesion extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String servlet = request.getServletPath();
+
         if(servlet.contains("/guardar-producto")){
             String codigoProducto = request.getParameter("codpro");
 
             Cookie[] cookies = request.getCookies();
-            int indexProducto = 0;
+            int indexProducto = 1;
 
-            if(cookies == null) {
+            boolean contieneProductos = false;
+
+            for(int i = 0; i < cookies.length; i++){
+                if((cookies[i].getName()).contains("producto")){
+                    contieneProductos = true;
+                    break;
+                }
+            }
+
+            if(!contieneProductos) {
 
                 Cookie producto = new Cookie("producto".concat(Integer.toString(indexProducto)), codigoProducto);
 
                 response.addCookie(producto);
 
-                response.getWriter().println("se agrego la primera cookie");
+                request.setAttribute("productosCarro", Integer.valueOf(indexProducto));
+
+                getServletContext().getRequestDispatcher("/controlprincipal").forward(request, response);
+
             } else {
 
                 for(int i = 0; i < cookies.length; i++){
@@ -34,7 +47,6 @@ public class ProductosAlCarroSinSesion extends HttpServlet {
                         if(ultimoCodigo > indexProducto || indexProducto == 0){
                             indexProducto = ultimoCodigo;
                         }
-                        response.getWriter().println("codigo de producto añadido: " + cookies[i].getValue());
                     }
                 }
 
@@ -42,15 +54,18 @@ public class ProductosAlCarroSinSesion extends HttpServlet {
 
                 response.addCookie(producto);
 
+                request.setAttribute("productosCarro", Integer.valueOf(indexProducto));
+
+                getServletContext().getRequestDispatcher("/controlprincipal").forward(request, response);
 
             }
+        }
 
-
-
-
-
+        if(servlet.equals("/carro-compras.ss")){
 
         }
+
+
     }
 
     @Override

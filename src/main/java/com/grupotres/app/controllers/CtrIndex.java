@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -108,6 +109,7 @@ public class CtrIndex extends HttpServlet {
             Optional<Usuario> usuarioOptional = daoUsuario.getObjetoUsuario(request);
 
             if(!usuarioOptional.isPresent()) {
+                System.out.println(request.getAttribute("productosCarro"));
                 getServletContext().getRequestDispatcher("/vistas/vistaprincipal.jsp").forward(request, response);
             } else {
                 getServletContext().getRequestDispatcher("/vistaSesionIniciada/vistasesioniniciada.jsp").forward(request, response);
