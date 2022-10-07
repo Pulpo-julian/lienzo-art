@@ -12,7 +12,10 @@ import java.util.List;
 
 public class DaoTienda {
 
-    private static final String SQL_SELECT = "SELECT * FROM tbltienda WHERE idusuario = ?;";
+    private static final String SQL_SELECT = "SELECT * FROM tbltienda WHERE usuarioid = ?;";
+
+    private static final String SQL_SELECT_ID = "SELECT * FROM tbltienda WHERE codigo = ?;";
+
 
     private static final String SQL_SELECT_CON_JOIN = "SELECT\n"
             + "\n"
@@ -69,6 +72,49 @@ public class DaoTienda {
         }
 
         return tiendas;
+
+    }
+
+    public Tienda obtenerTienda(String tiendaId){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Tienda tienda = null;
+
+        try {
+
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_ID);
+            stmt.setString(1, tiendaId);
+            rs = stmt.executeQuery();
+
+
+            rs.next();
+            int codigo = rs.getInt(1);
+            String nombre = rs.getString(2);
+            String direccion = rs.getString(3);
+            String usuarioid = rs.getString(4);
+            String descripcion = rs.getString(5);
+
+
+
+            tienda = new Tienda(codigo, nombre, direccion, usuarioid,
+                    descripcion);
+
+            return  tienda;
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace(System.out);
+
+        } finally {
+            Conexion.closeConnection(rs);
+            Conexion.closeConnection(stmt);
+            Conexion.closeConnection(conn);
+        }
+
+        return tienda;
 
     }
 

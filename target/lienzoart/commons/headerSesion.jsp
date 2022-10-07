@@ -36,7 +36,7 @@
         	</button>
         	<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         		<li><a href="${pageContext.request.contextPath}/usuario-config" class="dropdown-item">Configuración</a></li>
-        		<li><a href="${pageContext.request.contextPath}/cerrarsesion" class="dropdown-item">Crear tienda</a></li>
+        		<li><a href="${pageContext.request.contextPath}/obtener-tienda" class="dropdown-item">Crear tienda</a></li>
         		<li><a href="${pageContext.request.contextPath}/cerrarsesion" class="dropdown-item">Cerrar sesión</a></li>
         	</ul>
        	</div>
