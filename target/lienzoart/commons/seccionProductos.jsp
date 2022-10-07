@@ -10,10 +10,8 @@
 
 <div class="seccionprincipal">
 
-	<div class="titulocategoria">
-	
-		<h1 id="titulorespuesta"></h1>
-	
+	<div>
+		<h5>sí deseas agregar productos al carrito para comprarlos por favor regístrate o inicia sesión</h5>
 	</div>
 
 	<main class="seccion">
@@ -83,7 +81,6 @@
 						
 						<div class="preciocarrito">
 							<a href="#" class="precio"><% out.print("$" + producto.getPrecio()); %></a>
-							<a href="${pageContext.request.contextPath}/guardar-producto?codpro=<%out.print(producto.getCodigo());%>" class="carrito"><i class="fas fa-cart-plus"></i></a>
 						</div>
 						
 					</div>

@@ -25,7 +25,6 @@
 		        
 		<!-- SECCION PRINCIPAL -->
 		<div class="principal">
-		
 			
 			<!-- ASIDE CATEGORIAS -->			
 			<jsp:include page="../commons/aside.jsp"></jsp:include>

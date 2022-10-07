@@ -74,11 +74,6 @@ public class CtrIndex extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/controlprincipal");
         }
 
-        if(esContarProductosCarro){
-            doPost(request, response);
-        }
-
-
         try {
 
             DaoProducto daoPro = new DaoProducto();
@@ -127,39 +122,12 @@ public class CtrIndex extends HttpServlet {
 
         }
 
-
-
-
-
     }
-
-
-
-
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        Cookie[] cookies = request.getCookies();
-        int indexProducto = 0;
-
-        boolean contieneProductos = false;
-
-        if (cookies != null) {
-
-            for(int i = 0; i < cookies.length; i++){
-                if((cookies[i].getName()).contains("producto")){
-                    ++indexProducto;
-                }
-            }
-
-        }
-
-        request.setAttribute("productosCarro", Integer.valueOf(indexProducto));
-
-        getServletContext().getRequestDispatcher("/controlprincipal").forward(request, response);
 
 
     }

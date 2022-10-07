@@ -60,7 +60,6 @@
 
                             <div class="preciocarrito">
                                 <a href="#" class="precio"><% out.print("$" + producto.getPrecio()); %></a>
-                                <a href="${pageContext.request.contextPath}/guardar-producto?codpro=<%out.print(producto.getCodigo());%>" class="carrito"><i class="fas fa-cart-plus"></i></a>
                             </div>
 
                         </div>

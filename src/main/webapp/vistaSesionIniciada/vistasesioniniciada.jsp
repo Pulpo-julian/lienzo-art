@@ -30,7 +30,7 @@
 	
 		
 		<!-- SECCION PRODUCTOS -->			
-  			<jsp:include page="../commons/seccionProductos.jsp"></jsp:include>
+  			<jsp:include page="../commons/secccionProductosConCarro.jsp"></jsp:include>
 		
 	
 	</div>
