@@ -166,7 +166,7 @@ public class DaoTienda {
         try {
 
             conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_SELECT_ID);
+            stmt = conn.prepareStatement(SQL_SELECT_USERID_TIENDAID);
             stmt.setInt(1, tiendaId);
             stmt.setString(2, usuarioId);
             rs = stmt.executeQuery();
