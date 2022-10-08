@@ -71,7 +71,7 @@
 				} else {
 					out.print(tienda.getDireccion());
 				}
-					%>" id="apellidos" name="apellidos">
+					%>" id="direccion" name="direccion">
             <%if(errores != null && errores.containsKey("direccion")){%>
 
             <h5>
@@ -93,12 +93,12 @@
 					out.print(tienda.getDescripcion());
 				}
 					%>"
-                   id="correo" name="correo">
+                   id="descripcion" name="descripcion">
 
-            <%if(errores != null && errores.containsKey("correo")){%>
+            <%if(errores != null && errores.containsKey("descripcion")){%>
 
             <h5>
-                <% out.print(errores.get("correo")); %>
+                <% out.print(errores.get("descripcion")); %>
             </h5>
 
             <%} %>
@@ -106,9 +106,16 @@
 
             <input id="btn" type="submit" name="crud" value="actualizar" class="btn btn-primary boton_mov mt-4">
 
+            <%if(mensajeExito != null) {%>
+
+                <h4>Has actualizado tus datos con exito!!!</h4>
+
+            <%} %>
 
 
     </form>
+
+
 
 
     </div>
