@@ -41,7 +41,12 @@
                 <h1><%out.print("Nombre de la tienda: " + tienda.getNombre());%></h1>
                 <h4><%out.print("Descripción: " + tienda.getDescripcion());%></h4>
             </div>
+            <p>
             <a class="tienda" href="${pageContext.request.contextPath}/update-tienda?codtienda=<%out.print(tienda.getCodigo());%>">Editar Tienda</a>
+            </p>
+            <p>
+                <a class="tienda" href="${pageContext.request.contextPath}/ver-tienda?codtienda=<%out.print(tienda.getCodigo());%>">ingresar a la Tienda</a>
+            </p>
         <%}%>
 
     <%}%>
