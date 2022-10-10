@@ -56,6 +56,7 @@
             <div class="card" style="background: #59AED6">
                 <div class="creacion-nueva-tienda">
                     <form action="${pageContext.request.contextPath}/crear-tienda" method="post">
+                        <p>+</p>
                         <input type="submit" name="crear-tienda" value="Crear una tienda" class="btn-creartienda">
                     </form>
                 </div>

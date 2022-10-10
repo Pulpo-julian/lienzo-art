@@ -1,0 +1,73 @@
+header{
+	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+	font-size: 18px;
+	background-color: #59aed6;
+	height: 4rem;
+}
+
+.logo img{ /*Estilos para el logo en el header*/
+	width: 135px;
+	height: 65px;
+	align-items: center;
+	margin-left: 40px;
+}
+
+.buscador{ /*Estilos para el espaciado de la barra de b�squeda*/
+	padding: 5px;
+}
+
+.bsc{
+	border: none;
+}
+
+.buscador input{ /*Estilos para la barra de b�squeda*/
+	height: 40px;
+	outline: none;
+	border: none;
+	border-radius: 30px;
+	padding: 0 45px;
+	margin-top: 7px;
+	width: 70%;
+}
+
+#btnbuscar button{ /*Estilos y posicionamiento para el botón de buscar*/
+	transform: translateY(-48px);
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+#btnmicuenta{ /*Estilos y posicionamiento del bot�n de mi cuenta*/
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: bold;
+	height: 40px;
+	color: #000000;
+	background-color: #84e3fd;
+	border-radius: 10px;
+	border: none;
+	margin-top: 12px;
+}
+
+.btncarrocompras{ /*Estilos y posicionamiento del bot�n de carro de compras*/
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: bold;
+	height: 40px;
+	color: #000000;
+	background-color: #84e3fd;
+	border-radius: 10px;
+	border: none;
+	margin-top: 12px;
+}
+
+.btncarrocompras:hover{ /*stilos para el hover del bot�n de carrocompras*/
+	color: #1883ba;
+	background-color: #ffffff;
+	transition: 300ms;
+}
+
+#btnmicuenta:hover{ /*Estilos para el hover del bot�n de carrocompras*/
+	color: #1883ba;
+	background-color: #ffffff;
+	transition: 300ms;
+}

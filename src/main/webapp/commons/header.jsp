@@ -30,7 +30,7 @@
         </div>
     
     
-        <div class="usuario_login col-1">
+        <div class="usuario_login col-2">
         
              <form action="${pageContext.request.contextPath}/controlsesion" method="post">
                 <input type="submit" name="sesion" value="Iniciar sesión" class="btniniciarsesion">
@@ -38,7 +38,7 @@
     
         </div>
         
-        <div class="usuario_register col-1">
+        <div class="usuario_register col-2">
         
              <form action="${pageContext.request.contextPath}/controlsesion" method="post">
                 <input type="submit" name="registro" value="Regístrate" class="btncrearusuario">
