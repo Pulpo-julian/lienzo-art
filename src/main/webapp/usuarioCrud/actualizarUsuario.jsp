@@ -45,7 +45,7 @@
 		<form action="${pageContext.request.contextPath}/formulariousuario" method="post" class="form_usuario row">
 
 			<div class="col-6 mt-3">
-				<label class="form-label">Cedula</label>
+				<label class="form-label">Cédula</label>
 				<input class="form-control" type="text" value="<% if((errores != null && errores.containsKey("cedula")) || (errores != null && !errores.containsKey("cedula"))){
 					out.print(cedula);
 				} else {
@@ -137,7 +137,7 @@
 			<%if(usuario.getPerfil() == 3){%>
 
 				<div>
-					<p>Por ahora eres un usuario comprador, crea una tienda para convertirte en Vendedor</p>
+					<p>Por ahora eres un usuario comprador, crea una tienda para convertirte en vendedor</p>
 				</div>
 
 			<%} else  if (usuario.getPerfil() == 2) {%>
@@ -151,7 +151,7 @@
 			<div class="col-6 mt-3">
 
 
-				<label class="form-label">Telefono</label>
+				<label class="form-label">Teléfono</label>
 				<input class="form-control" type="text" value="<% if((errores != null && errores.containsKey("telefono")) || (errores != null && !errores.containsKey("telefono"))){
 					out.print(telefono);
 				} else {
@@ -174,7 +174,7 @@
 			<div class="col-6 mt-3">
 
 
-				<label class="form-label">Seleccione su Ciudad: </label>
+				<label class="form-label">Seleccione su ciudad: </label>
 
 				<select name="ciudades" id="" class="form-select" required>
 					<%for(int i = 0; i < ciudades.size(); i++) {
@@ -197,7 +197,7 @@
 			<div class="col-6 mt-3">
 
 
-				<label class="form-label">Código Postal</label>
+				<label class="form-label">Código postal</label>
 				<input class="form-control" type="text" value="<% if((errores != null && errores.containsKey("codigoPostal")) || (errores != null && !errores.containsKey("codigoPostal"))){
 					out.print(codigoPostal);
 				} else {
@@ -220,7 +220,7 @@
 			<div class="col-6 mt-3">
 
 
-				<label class="form-label">Direccion</label>
+				<label class="form-label">Dirección</label>
 				<input class="form-control" type="text" value="<% if((errores != null && errores.containsKey("direccion")) || (errores != null && !errores.containsKey("direccion"))){
 					out.print(direccion);
 				} else {
@@ -246,7 +246,7 @@
 
 		<%if(mensajeExito != null) {%>
 
-			<h4>Has actualizado tus datos con exito!!!</h4>
+			<h4>¡Has actualizado tus datos con éxito!</h4>
 
 		<%} %>
 
