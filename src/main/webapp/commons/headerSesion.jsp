@@ -44,7 +44,7 @@
         
         <div class="carrocompras col-2">
         
-             <form action="${pageContext.request.contextPath}/controlsesion" method="post">
+             <form action="${pageContext.request.contextPath}/productos-carro" method="post">
                 <input type="submit" name="carrocompras" value="Carrocompras" class="btncarrocompras">
              </form>
             <%if(cantProductosCarro != null && cantProductosCarro != 0){%>

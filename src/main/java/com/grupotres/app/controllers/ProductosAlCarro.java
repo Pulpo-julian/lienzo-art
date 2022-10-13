@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet({"/guardar-producto", "/carro-compras.ss"})
+@WebServlet({"/guardar-producto", "/productos-carro"})
 public class ProductosAlCarro extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -72,13 +72,24 @@ public class ProductosAlCarro extends HttpServlet {
 
         }
 
-
-
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String servlet = request.getServletPath();
+
+        if(servlet.equals("/productos-carro")){
+
+            //valido que tenga la sesion iniciada
+            DaoUsuario daoUsuario = new DaoUsuario();
+            Optional<Usuario> usuarioOptional = daoUsuario.getObjetoUsuario(request);
+
+            if(usuarioOptional.isPresent()){
+
+            }
+
+        }
 
     }
 }

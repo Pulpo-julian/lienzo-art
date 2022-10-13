@@ -97,6 +97,8 @@ public class CtrTienda extends HttpServlet {
 
                 }
 
+            } else {
+                response.getWriter().println("Por favor registrate o inicia sesión");
             }
 
         }
