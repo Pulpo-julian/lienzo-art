@@ -34,6 +34,8 @@
 <div class="flex_container">
     <%if (items != null && items.size() > 0) { int i = 0; %>
 
+    <h1>Tus productos agregados</h1>
+
     <% for(ItemProducto item: items){ Producto producto = productos.get(i++);%>
 
     <div class="producto card" style="border-radius: 10px;">
