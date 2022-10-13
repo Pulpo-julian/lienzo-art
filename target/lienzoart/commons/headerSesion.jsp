@@ -52,8 +52,17 @@
         </div>
 
         <!-- Mi cuenta boton -->
-       	<div class="micuenta dropdown col-2">
+       	<div class="micuenta dropdown col-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
 
+<<<<<<< HEAD
+=======
+
+                <h6 class="saludo">Hi <%out.print(usuario.getNombres().split(" ")[0]);%></h6>
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5368b5ed9df037eaf372d9e1eeb3ec9af48c4c69
 >>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
         	<button type="button" class="btn btn-secondary dropdown-toggle"  id="btnmicuenta" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         		Mi cuenta

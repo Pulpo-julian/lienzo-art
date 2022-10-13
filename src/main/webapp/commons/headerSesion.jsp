@@ -39,7 +39,7 @@
         </div>
 
         <!-- Mi cuenta boton -->
-       	<div class="micuenta dropdown col-2">
+       	<div class="micuenta dropdown col-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
 
         	<button type="button" class="btn btn-secondary dropdown-toggle"  id="btnmicuenta" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         		Mi cuenta
