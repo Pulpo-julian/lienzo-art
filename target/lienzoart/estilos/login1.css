@@ -1,0 +1,56 @@
+body{
+	background-color: #EFEFEF;
+	@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
+	font-family: 'Mukta', sans-serif;
+}
+
+.formulario{
+	width: 400px;
+    padding: 30px;
+    margin: auto;
+    border-radius: 7px;
+    box-shadow: 7px 13px 37px #000;
+    background-color: #59aed6;
+}
+
+h1{
+	text-align: center;
+	margin: 20px;
+	color: white;
+	font-weight: bold;
+}
+
+h6{
+	color: white;
+}
+
+label{
+	color: white;
+}
+
+.registro{
+	text-align: center;
+}
+
+#btnregistro{
+	border: none;
+	background-color: #59aed6;
+	color: black;
+}
+
+.btn{
+	background-color:#CCEAF4;
+	border: none;
+}
+
+.btn:hover{
+	background-color: #a3cad7;
+}
+
+.row{
+	margin-top: 10%;
+}
+
+#iconmain:hover{
+	cursor: pointer;
+}

@@ -1,0 +1,71 @@
+.flex_container{ /*MÃƒÆ’Ã‚Â¡rgenes para el contenido principal*/
+    padding: 40px;
+}
+
+.flex_container h1{ /*Estilos y posicionamiento para el texto de Tus productos agregados*/
+    text-align: center;
+    font-weight: bold;
+}
+
+.contenedor-productos{ /*Estilo para posicionar las cajas de los productos una delante de otra*/
+    float: left;
+}
+
+.producto{ /*Estilos de la caja de productos*/
+    padding: 10px;
+    margin: 20px;
+    width: 250px;
+    height: auto;
+    background-color: #EFEFEF;
+}
+
+.muestra { /*Estilos para la imagen, lista y links de la caja del producto*/
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.muestra:hover .img {transform:scale(1.03) translate(0,0);} /*Estilos para el hover de la imagen del producto*/
+.contenedor {overflow:hidden;}
+.muestra img{
+    margin-top: .3rem;
+    width: 230px;
+    height: 230px;
+    border-radius: 10px;
+}
+
+.muestra h4{
+    margin-top:1rem;
+}
+
+.tienda{ /*Estilos para el nombre de la tienda*/
+    color: black;
+    text-decoration: none;
+}
+
+.informacion ul li{ /*Estilos para la lista de informaciÃƒÂ³n*/
+    list-style: none;
+}
+
+.preciocarrito{ /*Espaciado para el contenido con la informacion del carrito y producto*/
+    margin-left: 31px;
+}
+
+.unidades h4{ /*TamaÃ±o para el texto h4*/
+    font-size: 15px;
+}
+
+.valor-total h4{
+    font-size: 15px;
+}
+
+.eliminar{ /*Estilos para el botÃ³n de eliminar producto*/
+    background-color: #59aed6;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
