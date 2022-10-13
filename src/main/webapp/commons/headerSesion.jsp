@@ -22,7 +22,7 @@
         </div>
 
         <!-- Buscador -->
-        <div class="buscador col-6">
+        <div class="buscador col-5">
         	
         	<form action="${pageContext.request.contextPath}/controlprincipal" id="buscarForm">
         		<input type="search" name="buscar" class="buscar" placeholder="Buscar..." value="<%if(buscar != null && !buscar.isEmpty()) {out.println(buscar);} %>">
@@ -33,12 +33,13 @@
             </div>
         </div>
 
+        <!-- Nombre usuario -->
+        <div class="saludo col-1">
+            <h4>Hola <%out.print(usuario.getNombres().split(" ")[0]);%></h4>
+        </div>
+
         <!-- Mi cuenta boton -->
        	<div class="micuenta dropdown col-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
-
-
-                <h6 class="saludo">Hi <%out.print(usuario.getNombres().split(" ")[0]);%></h6>
-
 
         	<button type="button" class="btn btn-secondary dropdown-toggle"  id="btnmicuenta" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         		Mi cuenta
