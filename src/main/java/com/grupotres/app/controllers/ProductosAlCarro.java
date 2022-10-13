@@ -94,8 +94,13 @@ public class ProductosAlCarro extends HttpServlet {
 
                 for(ItemProducto item: itemProductos){
                     Producto producto = daoProducto.buscarProducto(item.getCodProducto());
-
+                    productos.add(producto);
                 }
+
+                request.setAttribute("itemProductos", itemProductos);
+                request.setAttribute("productos", productos);
+
+                getServletContext().getRequestDispatcher("/vistaCarroCompras/carrocompras.jsp").forward(request, response);
 
             }
 
