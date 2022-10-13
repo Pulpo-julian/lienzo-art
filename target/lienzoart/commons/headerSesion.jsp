@@ -22,7 +22,11 @@
         </div>
 
         <!-- Buscador -->
+<<<<<<< HEAD
         <div class="buscador col-6">
+=======
+        <div class="buscador col-5">
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
         	
         	<form action="${pageContext.request.contextPath}/controlprincipal" id="buscarForm">
         		<input type="search" name="buscar" class="buscar" placeholder="Buscar..." value="<%if(buscar != null && !buscar.isEmpty()) {out.println(buscar);} %>">
@@ -33,6 +37,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <!-- Mi cuenta boton -->
        	<div class="micuenta dropdown col-2">
 
@@ -40,6 +45,16 @@
                 <h4>Hola <%out.print(usuario.getNombres().split(" ")[0]);%></h4>
             </div>
 
+=======
+        <!-- Nombre usuario -->
+        <div class="saludo col-1">
+            <h4>Hola <%out.print(usuario.getNombres().split(" ")[0]);%></h4>
+        </div>
+
+        <!-- Mi cuenta boton -->
+       	<div class="micuenta dropdown col-2">
+
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
         	<button type="button" class="btn btn-secondary dropdown-toggle"  id="btnmicuenta" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         		Mi cuenta
         	</button>
@@ -52,7 +67,11 @@
         
         <div class="carrocompras col-2">
         
+<<<<<<< HEAD
              <form action="${pageContext.request.contextPath}/productos-carro">
+=======
+             <form action="${pageContext.request.contextPath}/productos-carro" method="post">
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
                 <input type="submit" name="carrocompras" value="Carrocompras" class="btncarrocompras">
              </form>
             <%if(cantProductosCarro != null && cantProductosCarro != 0){%>

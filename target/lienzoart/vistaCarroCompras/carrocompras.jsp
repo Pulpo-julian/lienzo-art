@@ -24,7 +24,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+<<<<<<< HEAD
     <link rel="stylesheet" href="estilos/estiloscategoriasproductos.css" id="recargar">
+=======
+    <link rel="stylesheet" href="estilos/estiloscarrocompras.css">
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
     <title>Carro de compras</title>
 </head>
 <body>
@@ -32,12 +36,17 @@
 <jsp:include page="../commons/headerSesion.jsp"></jsp:include>
 
 <div class="flex_container">
+<<<<<<< HEAD
     <%if (items != null && items.size() > 0) { int i = 0; int valorTotal = 0;%>
+=======
+    <%if (items != null && items.size() > 0) { int i = 0; %>
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
 
     <h1>Tus productos agregados</h1>
 
     <% for(ItemProducto item: items){ Producto producto = productos.get(i++);%>
 
+<<<<<<< HEAD
         <%if(item.getCantProducto() == 0) continue;%>
 
     <div class="producto card" style="border-radius: 10px;">
@@ -76,16 +85,59 @@
 
         </div>
 
+=======
+    <div class="contenedor-productos">
+
+        <div class="producto card" style="border-radius: 10px;">
+
+            <div class="muestra">
+                <a href="${pageContext.request.contextPath}/detalle-producto?codpro=<%out.print(producto.getCodigo());%>">
+                    <img alt="#" src="<% out.println(producto.getUrlImagen()); %>" class="img">
+                </a>
+
+                <h4><% out.print(producto.getNombre());%></h4>
+            </div>
+
+            <div class="informacion" >
+
+                <ul class="listaproducto">
+                    <li> <h6>Categoria: 	<% out.print(producto.getCategoria()); %></h6> </li>
+                    <li> <h6><a class="tienda" href="#"><% out.print(producto.getTienda()); %></a> </h6> </li>
+                </ul>
+
+                <div class="preciocarrito">
+                    <p class="precio"><% out.print("valor unidad: $" + producto.getPrecio()); %></p>
+
+                    <div class ="unidades">
+                        <h4>Cantidad: <%out.print(item.getCantProducto());%></h4>
+                    </div>
+
+                    <div class ="valor-total">
+                        <h4>Valor total: <%out.print(item.getCantProducto() * item.getValorProducto());%></h4>
+                    </div>
+
+
+                    <a href="${pageContext.request.contextPath}/guardar-producto?codpro=<%out.print(producto.getCodigo());%>&pre=<%out.print(producto.getPrecio());%>" class="eliminar">Eliminar Producto</a>
+                </div>
+
+            </div>
+
+        </div>
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
     </div>
 
     <%} %>
 
+<<<<<<< HEAD
     <div class="precio-total">
         <h2>Total a pagar:</h2><h1>$ <%out.print(valorTotal);%></h1>
     </div>
     <div class="pagar">
         <a href="${pageContext.request.contextPath}/pagar-factura">Pagar</a>
     </div>
+=======
+
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
     <%} %>
 </div>
 

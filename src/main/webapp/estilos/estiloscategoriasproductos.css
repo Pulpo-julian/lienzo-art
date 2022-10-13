@@ -2,30 +2,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 }
 
-aside{
+aside{ /*Posicionamiento de la caja de categorías*/
 	padding: 20px;
 	margin-top: 17%;
 }
 
-.categoria h2{
+.categoria h2{ /*Posicionamiento del título de categorías*/
 	text-align: center;
 }
 
-.categoria{
+.categoria{ /*Estilos para la caja de categorías*/
 	border: 1px solid lightgrey;
 	background-color: white;
 	padding: 30px;
 	border-radius: 20px;
 }
 
-.categoria .lista{
+.categoria .lista{ /*Estilos para la lista de categorías*/
 	width: 100%;
 	list-style: none;
 	padding-left: 13%;
 	line-height: 3.8em;
 }
 
-.lista a{
+.lista a{ /*Estilos para los links de las categorías*/
 	font-size: 1.4rem;
 	box-shadow: inset 0 0 0 0 #59aed6;
   	color: black;
@@ -36,12 +36,12 @@ aside{
 	text-decoration: none;
 }
 
-.lista a:hover{
+.lista a:hover{ /*Estilos para el hover de los links de categorías*/
 	box-shadow: inset 100px 0 0 0 #59aed6;
   	color: white;
 }
 
-.principal{
+.principal{ /*Division por grid de la caja de categorías y la sección de productos*/
 	background-color:  #EFEFEF;
 	display: grid;
 	grid-template-columns: 20% 80%;
@@ -55,16 +55,16 @@ aside{
 }
 
 
-.seccionprincipal{
+.seccionprincipal{ /*Posicionamiento para la seccion principal*/
 	margin-top: 3.7%;
 }
 
-.listaproducto{
+.listaproducto{ /*Estilos para la información del producto*/
 	list-style: none;
 	text-transform: capitalize;
 }
 
-.flex_container{
+.flex_container{ /*Posicionamiento por flexbox para las cajas de los productos*/
 	display: flex;
 	flex-direction: row;
 	flex-flow: row wrap;
@@ -79,7 +79,7 @@ aside{
 	text-transform: capitalize;
 }
 
-.muestra:hover .img {transform:scale(1.03) translate(0,0);}
+.muestra:hover .img {transform:scale(1.03) translate(0,0);} /*Estilos para el hover de la imagen del producto*/
 .contenedor {overflow:hidden;}
 .muestra img{
 	margin-top: .3rem;

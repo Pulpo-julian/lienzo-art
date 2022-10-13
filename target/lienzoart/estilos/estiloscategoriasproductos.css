@@ -2,30 +2,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 }
 
+<<<<<<< HEAD
 aside{
+=======
+aside{ /*Posicionamiento de la caja de categorías*/
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
 	padding: 20px;
 	margin-top: 17%;
 }
 
+<<<<<<< HEAD
 .categoria h2{
 	text-align: center;
 }
 
 .categoria{
+=======
+.categoria h2{ /*Posicionamiento del título de categorías*/
+	text-align: center;
+}
+
+.categoria{ /*Estilos para la caja de categorías*/
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
 	border: 1px solid lightgrey;
 	background-color: white;
 	padding: 30px;
 	border-radius: 20px;
 }
 
+<<<<<<< HEAD
 .categoria .lista{
+=======
+.categoria .lista{ /*Estilos para la lista de categorías*/
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
 	width: 100%;
 	list-style: none;
 	padding-left: 13%;
 	line-height: 3.8em;
 }
 
+<<<<<<< HEAD
 .lista a{
+=======
+.lista a{ /*Estilos para los links de las categorías*/
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
 	font-size: 1.4rem;
 	box-shadow: inset 0 0 0 0 #59aed6;
   	color: black;
@@ -36,12 +56,20 @@ aside{
 	text-decoration: none;
 }
 
+<<<<<<< HEAD
 .lista a:hover{
+=======
+.lista a:hover{ /*Estilos para el hover de los links de categorías*/
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
 	box-shadow: inset 100px 0 0 0 #59aed6;
   	color: white;
 }
 
+<<<<<<< HEAD
 .principal{
+=======
+.principal{ /*Division por grid de la caja de categorías y la sección de productos*/
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
 	background-color:  #EFEFEF;
 	display: grid;
 	grid-template-columns: 20% 80%;
@@ -55,16 +83,28 @@ aside{
 }
 
 
+<<<<<<< HEAD
 .seccionprincipal{
 	margin-top: 3.7%;
 }
 
 .listaproducto{
+=======
+.seccionprincipal{ /*Posicionamiento para la seccion principal*/
+	margin-top: 3.7%;
+}
+
+.listaproducto{ /*Estilos para la información del producto*/
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
 	list-style: none;
 	text-transform: capitalize;
 }
 
+<<<<<<< HEAD
 .flex_container{
+=======
+.flex_container{ /*Posicionamiento por flexbox para las cajas de los productos*/
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
 	display: flex;
 	flex-direction: row;
 	flex-flow: row wrap;
@@ -79,7 +119,11 @@ aside{
 	text-transform: capitalize;
 }
 
+<<<<<<< HEAD
 .muestra:hover .img {transform:scale(1.03) translate(0,0);}
+=======
+.muestra:hover .img {transform:scale(1.03) translate(0,0);} /*Estilos para el hover de la imagen del producto*/
+>>>>>>> 16c9496c29b07d7d3a98bc4e89c8a643f44bb91a
 .contenedor {overflow:hidden;}
 .muestra img{
 	margin-top: .3rem;

@@ -24,7 +24,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="estilos/estiloscategoriasproductos.css" id="recargar">
+    <link rel="stylesheet" href="estilos/estiloscarrocompras.css">
     <title>Carro de compras</title>
 </head>
 <body>
@@ -38,30 +38,35 @@
 
     <% for(ItemProducto item: items){ Producto producto = productos.get(i++);%>
 
+
         <%if(item.getCantProducto() == 0) continue;%>
 
-    <div class="producto card" style="border-radius: 10px;">
 
-        <div class="muestra">
-            <a href="${pageContext.request.contextPath}/detalle-producto?codpro=<%out.print(producto.getCodigo());%>">
-                <img alt="#" src="<% out.println(producto.getUrlImagen()); %>" class="img">
-            </a>
+    <div class="contenedor-productos">
 
-            <h4><% out.print(producto.getNombre());%></h4>
-        </div>
+        <div class="producto card" style="border-radius: 10px;">
 
-        <div class="informacion" >
+            <div class="muestra">
+                <a href="${pageContext.request.contextPath}/detalle-producto?codpro=<%out.print(producto.getCodigo());%>">
+                    <img alt="#" src="<% out.println(producto.getUrlImagen()); %>" class="img">
+                </a>
 
-            <ul class="listaproducto">
-                <li> <h6>Categoria: 	<% out.print(producto.getCategoria()); %></h6> </li>
-                <li> <h6><a class="tienda" href="#"><% out.print(producto.getTienda()); %></a> </h6> </li>
-            </ul>
+                <h4><% out.print(producto.getNombre());%></h4>
+            </div>
 
-            <div class="preciocarrito">
-                <a href="#" class="precio"><% out.print("valor unidad: $" + producto.getPrecio()); %></a>
-                <div class ="unidades">
-                    <h4>Cantidad unidades: </h4>
-                    <h3><%out.print(item.getCantProducto());%></h3>
+            <div class="informacion" >
+
+                <ul class="listaproducto">
+                    <li> <h6>Categoria: 	<% out.print(producto.getCategoria()); %></h6> </li>
+                    <li> <h6><a class="tienda" href="#"><% out.print(producto.getTienda()); %></a> </h6> </li>
+                </ul>
+
+                <div class="preciocarrito">
+                    <p class="precio"><% out.print("Valor unidad: $" + producto.getPrecio()); %></p>
+
+                    <div class ="unidades">
+                        <h4>Cantidad: <%out.print(item.getCantProducto());%></h4>
+                    </div>
                 </div>
 
                 <div class ="valor-total">
@@ -75,7 +80,6 @@
             </div>
 
         </div>
-
     </div>
 
     <%} %>
