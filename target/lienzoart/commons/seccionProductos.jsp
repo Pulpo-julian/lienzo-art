@@ -10,14 +10,11 @@
 
 <div class="seccionprincipal">
 
-	<div>
-		<h5>sí deseas agregar productos al carrito para comprarlos por favor regístrate o inicia sesión</h5>
-	</div>
+	<h6 class="titulo1">
+		Sí quieres agregar productos al carro de compras, debes registrarte o iniciar sesión.</h6>
 
 	<main class="seccion">
-	
-	
-	
+
 		<%if (accion != null && productos.size() > 0) {%>
 		
 			<div class="titulocategoria">
@@ -93,8 +90,6 @@
 		<%} %>
 		</div>
 	</main>
-
-
 
 
 </div>

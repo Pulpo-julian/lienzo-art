@@ -11,10 +11,9 @@
           <div class="content">
             <p>Empresa dedica al desarrollo de Software, tienda online</p>
             <div class="social">
-              <p>Página desarrollada para la venta de productos artesanales, enfocada principalmente en las tiendas del oriente antioqueño,
-               brindando la facilidad a los vendedores independientes o con tiendas físicas a tener
-              un impacto un poco mayor en su número de ventas, esta pagina les brindara la opción de generar más
-              ingresos y dar a conocer sus productos a otras regiones de antioquia.
+              <p>Página desarrollada para la venta de productos artesanales del oriente antioqueño,
+               brindando la facilidad a los vendedores, tener  impacto un poco mayor en su número de ventas, aqui podran dar a conocer sus productos a
+                  otras regiones de antioquia.
             <br> Equipo #3 <br>
               </p>
             </div>
@@ -34,7 +33,7 @@
                 </div>
                 <div class="email">
                   <span class="fas fa-envelope" id="icono_footer"></span>
-                  <span class="text">gagil339@misena.edu.co || jjjaramillo826@misena.edu.co || jaregalado5@misena.edu.co</span>
+                  <span class="text">gagil339@misena.edu.co</span>
                 </div>
               </div>
         </div>

@@ -130,3 +130,14 @@ aside{
 	background-color: #59aed6;
 	border-radius: 3px;
 }
+.titulo1{
+	margin-top: 1.5rem;
+	background-color: #59aed6;
+	padding: 20px;
+	color: black;
+	border-radius: 20px;
+	text-decoration: none;
+	text-align: center;
+	width: 43%;
+	margin-left: 25%;
+}
