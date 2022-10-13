@@ -83,6 +83,9 @@
     <div class="precio-total">
         <h2>Total a pagar:</h2><h1>$ <%out.print(valorTotal);%></h1>
     </div>
+    <div class="pagar">
+        <a href="${pageContext.request.contextPath}/pagar-factura">Pagar</a>
+    </div>
     <%} %>
 </div>
 

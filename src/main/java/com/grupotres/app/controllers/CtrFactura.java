@@ -32,8 +32,6 @@ public class CtrFactura extends HttpServlet {
 
                 request.setAttribute("tipos", tipos);
 
-
-
             }
 
         }

@@ -1,5 +1,6 @@
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\controllers\CtrTienda.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\dao\DaoUsuario.java
+C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\modelos\TipoPago.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\controllers\CtrUsuario.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\dao\DaoCategoria.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\dao\DaoProducto.java
@@ -8,8 +9,10 @@ C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\modelos\Pr
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\controllers\ProductosAlCarro.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\modelos\ItemProducto.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\controllers\CtrIndex.java
+C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\dao\DaoTipoPago.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\dao\DaoTienda.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\modelos\Usuario.java
+C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\controllers\CtrFactura.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\conexion\Conexion.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\dao\DaoCiudad.java
 C:\Users\dell\IdeaProjects\lienzo-art\src\main\java\com\grupotres\app\modelos\Categoria.java
