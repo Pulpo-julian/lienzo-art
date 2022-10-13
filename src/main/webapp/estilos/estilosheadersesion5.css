@@ -71,3 +71,14 @@ header{
 	background-color: #ffffff;
 	transition: 300ms;
 }
+
+.cantidad-producto-agregados h5{/*Estilos para el contador de productos de carro de compras */
+	background-color:orange;
+	font-size: 17px;
+	padding: 4px;
+	width: 22px;
+	text-align:center;
+	border-radius: 100%;
+	transform:translateY(-48px);
+	margin-left: 103px;
+}
