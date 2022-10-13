@@ -34,11 +34,11 @@
         </div>
 
         <!-- Mi cuenta boton -->
-       	<div class="micuenta dropdown col-2">
+       	<div class="micuenta dropdown col-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
 
-            <div class="saludo">
-                <h4>Hola <%out.print(usuario.getNombres().split(" ")[0]);%></h4>
-            </div>
+
+                <h6 class="saludo">Hi <%out.print(usuario.getNombres().split(" ")[0]);%></h6>
+
 
         	<button type="button" class="btn btn-secondary dropdown-toggle"  id="btnmicuenta" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         		Mi cuenta

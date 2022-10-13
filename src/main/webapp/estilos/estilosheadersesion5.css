@@ -82,3 +82,13 @@ header{
 	transform:translateY(-48px);
 	margin-left: 103px;
 }
+
+.saludo{
+	margin-top: 1.5rem;
+	background-color: #59aed6;
+	padding: 20px;
+	color: black;
+	border-radius: 20px;
+	text-decoration: none;
+	text-align: center;
+}
