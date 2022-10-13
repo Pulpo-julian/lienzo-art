@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.grupotres.app.conexion.Conexion;
+import com.grupotres.app.modelos.ItemProducto;
 import com.grupotres.app.modelos.Producto;
 
 import java.sql.DriverManager;
@@ -135,6 +136,13 @@ public class DaoProducto {
 
     private static final String SQL_DELETE = "DELETE FROM tblusuario WHERE docid = ?;";
 
+    private static final String SQL_INSERT_CARRO_PRODUCTO = "INSERT INTO tblcarroproducto VALUES(?,?,?,?);";
+
+    private static final String SQL_SELECT_CARROID = "SELECT * FROM tblcarroproducto WHERE codcarro = ?;";
+
+    private static final String SQL_SELECT_CARROID_PRODID = "SELECT * FROM tblcarroproducto WHERE codproducto = ? AND codcarro = ?;";
+
+    private static final String SQL_UPDATE_CANT_CARRO = "UPDATE tblcarroproducto SET cantproducto = ? WHERE codproducto = ? AND codcarro = ?;";
 
 
     public List<Producto> listar(){
@@ -491,7 +499,168 @@ public class DaoProducto {
 	}
 	*/
 
+    public int insertarProductoCarro(int codPro, int codCarro,
+                                int cant, int precio) {
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_INSERT_CARRO_PRODUCTO);
+
+
+            stmt.setInt(1, codPro);
+            stmt.setInt(2, codCarro);
+            stmt.setInt(3, cant);
+            stmt.setInt(4, precio);
+
+
+            int resultado = stmt.executeUpdate();
+
+            return resultado;
+
+        } catch (Exception e) {
+
+            e.printStackTrace(System.out);
+
+        } finally {
+            Conexion.closeConnection(stmt);
+            Conexion.closeConnection(conn);
+        }
+
+        return 0;
+
+    }
+
+    public List<ItemProducto> listarPorCarro(int codigoCarro){
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<ItemProducto> productos = new ArrayList<ItemProducto>();
+
+        try {
+
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_CARROID);
+            stmt.setInt(1, codigoCarro);
+            rs = stmt.executeQuery();
+
+            while(rs.next()) {
+
+                int codProducto = rs.getInt(1);
+                int codCarro = rs.getInt(2);
+                int cantProducto = rs.getInt(3);
+                int existencia = rs.getInt(4);
+
+                productos.add(new ItemProducto(codProducto, codCarro, cantProducto, existencia));
+
+            }
+
+            return productos;
+
+        } catch (Exception e) {
+
+            e.printStackTrace(System.out);
+
+        } finally {
+            Conexion.closeConnection(rs);
+            Conexion.closeConnection(stmt);
+            Conexion.closeConnection(conn);
+        }
+
+        return productos;
+
+    }
+
+    public ItemProducto itemPorCarroProducto(int codProducto, int codigoCarro){
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ItemProducto itemProducto = null;
+
+        try {
+
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT_CARROID_PRODID);
+            stmt.setInt(1, codProducto);
+            stmt.setInt(2, codigoCarro);
+
+            rs = stmt.executeQuery();
+
+            rs.next();
+            int codigoProducto = rs.getInt(1);
+            int codCarro = rs.getInt(2);
+            int cantProducto = rs.getInt(3);
+            int existencia = rs.getInt(4);
+
+            itemProducto = new ItemProducto(codigoProducto, codCarro, cantProducto, existencia);
 
 
 
+            return itemProducto;
+
+        } catch (Exception e) {
+
+            e.printStackTrace(System.out);
+
+        } finally {
+            Conexion.closeConnection(rs);
+            Conexion.closeConnection(stmt);
+            Conexion.closeConnection(conn);
+        }
+
+        return itemProducto;
+
+    }
+
+    public int insertarProductoCarroModCantidad(int codPro, int codCarro) {
+
+        ItemProducto itemProducto = itemPorCarroProducto(codPro, codCarro);
+
+        int cantidad = itemProducto.getCantProducto();
+
+        itemProducto.setCantProducto(cantidad + 1);
+
+        //actualizo cantidad
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+
+        try {
+
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_UPDATE_CANT_CARRO);
+            stmt.setInt(1, itemProducto.getCantProducto());
+            stmt.setInt(2, itemProducto.getCodProducto());
+            stmt.setInt(3, itemProducto.getCodCarro());
+
+            int resultado = stmt.executeUpdate();
+
+            return resultado;
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace(System.out);
+
+            return 0;
+
+        } finally {
+            Conexion.closeConnection(stmt);
+            Conexion.closeConnection(conn);
+        }
+
+    }
+
+    public int cantidadProductosEnCarro(List<ItemProducto> productos){
+        int cantidadTotal = 0;
+        for(ItemProducto producto: productos){
+            cantidadTotal += producto.getCantProducto();
+        }
+        return cantidadTotal;
+    }
 }

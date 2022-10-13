@@ -1,15 +1,12 @@
 package com.grupotres.app.controllers;
 
 import com.grupotres.app.dao.DaoCiudad;
-import com.grupotres.app.modelos.Ciudad;
+import com.grupotres.app.modelos.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import com.grupotres.app.modelos.Categoria;
-import com.grupotres.app.modelos.Producto;
-import com.grupotres.app.modelos.Usuario;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -100,6 +97,32 @@ public class CtrUsuario extends HttpServlet {
 
                 HttpSession session = request.getSession();
                 session.setAttribute("usuario", usuario);
+
+                //se obtiene el carro de compras del usuario
+                String docIdUsuario = ((Usuario)(request.getSession().getAttribute("usuario"))).getDocid();
+
+                Integer codCarro = daoUsuario.buscarCarroUsuario(docIdUsuario);
+
+                if(codCarro == null){
+
+                    daoUsuario.crearCarroUsuario(docIdUsuario);
+
+                } else {
+
+                    session.setAttribute("carro", codCarro);
+
+                    Integer cantidadProductos = 0;
+
+                    DaoProducto daoProducto = new DaoProducto();
+                    List<ItemProducto> productos = daoProducto.listarPorCarro(codCarro);
+
+                    if(productos != null){
+                        cantidadProductos = daoProducto.cantidadProductosEnCarro(productos);
+                    }
+
+                    session.setAttribute("cantidadproductoscarro", cantidadProductos);
+
+                }
 
                 response.sendRedirect(request.getContextPath() + "/controlprincipalsesion");
 

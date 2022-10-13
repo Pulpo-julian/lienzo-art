@@ -1,10 +1,10 @@
 body{
     background-color: #EFEFEF;
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap');
     font-family: 'Mukta', sans-serif;
 }
 
-.formulario{
+.formulario{ /*Estilos y posicionamiento para la caja de formulario*/
     width: 700px;
     padding: 30px;
     margin: auto;
@@ -15,26 +15,26 @@ body{
     background-color: #59aed6;
 }
 
-h1{
+h1{ /*Estilos para el título de actualizar usuario*/
     text-align: center;
     margin: 20px;
     color: white;
     font-weight: bold;
 }
 
-h6{
+h6{ /*Color para los textos tipo h6*/
     color: white;
 }
 
-label{
+label{ /*Color para los textos label del formulario*/
     color: white;
 }
 
-p{
+p{ /*Color para los textos tipo p*/
     color: white;
 }
 
-.title{
+.title{ /*Posicionamiento centrado del titulo*/
     text-align: center;
 }
 

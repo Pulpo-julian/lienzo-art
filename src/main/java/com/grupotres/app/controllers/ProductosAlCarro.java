@@ -1,7 +1,11 @@
 package com.grupotres.app.controllers;
 
 import com.grupotres.app.dao.DaoProducto;
+import com.grupotres.app.dao.DaoUsuario;
+import com.grupotres.app.modelos.ItemProducto;
 import com.grupotres.app.modelos.Producto;
+import com.grupotres.app.modelos.Usuario;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -9,6 +13,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @WebServlet({"/guardar-producto", "/carro-compras.ss"})
 public class ProductosAlCarro extends HttpServlet {
@@ -17,95 +22,57 @@ public class ProductosAlCarro extends HttpServlet {
         String servlet = request.getServletPath();
 
         if(servlet.contains("/guardar-producto")){
-            String codigoProducto = request.getParameter("codpro");
 
-            Cookie[] cookies = request.getCookies();
-            int indexProducto = 1;
+            DaoUsuario daoUsuario = new DaoUsuario();
+            Optional<Usuario> usuarioOptional = daoUsuario.getObjetoUsuario(request);
 
-            boolean contieneProductos = false;
+            if(usuarioOptional.isPresent()){
+                String codigoProducto = request.getParameter("codpro");
+                String docIdUsuario = ((Usuario)(request.getSession().getAttribute("usuario"))).getDocid();
 
-            if (cookies != null) {
+                Integer codCarro = daoUsuario.buscarCarroUsuario(docIdUsuario);
 
-                for(int i = 0; i < cookies.length; i++){
-                    if((cookies[i].getName()).contains("producto")){
-                        contieneProductos = true;
-                        break;
+                if(codCarro == null){
+                    daoUsuario.crearCarroUsuario(docIdUsuario);
+                } else {
+                    int precio = Integer.parseInt(request.getParameter("pre"));
+
+                    DaoProducto daoProducto = new DaoProducto();
+
+                    //listar por producto y carro para ver si ya se ingreso un registro
+                    ItemProducto productoPrueba = daoProducto.itemPorCarroProducto(Integer.parseInt(codigoProducto), codCarro);
+
+                    if(productoPrueba == null){
+                        daoProducto.insertarProductoCarro(Integer.parseInt(codigoProducto), codCarro, 1, precio);
+                    } else {
+                        //modifico la cantidad del registro
+                        daoProducto.insertarProductoCarroModCantidad(Integer.parseInt(codigoProducto), codCarro);
                     }
+
+                    Integer cantidadProductos = 0;
+
+                    List<ItemProducto> productos = daoProducto.listarPorCarro(codCarro);
+
+                    if(productos != null){
+                        cantidadProductos = daoProducto.cantidadProductosEnCarro(productos);
+                    }
+
+                    request.getSession().setAttribute("cantidadproductoscarro", cantidadProductos);
+
+                    getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+
                 }
-
-            }
-
-            if(!contieneProductos) {
-
-                Cookie producto = new Cookie("producto".concat(Integer.toString(indexProducto)), codigoProducto);
-
-                response.addCookie(producto);
-
-                request.setAttribute("productosCarro", Integer.valueOf(indexProducto));
-
-                getServletContext().getRequestDispatcher("/controlprincipal").forward(request, response);
 
             } else {
-
-                for(int i = 0; i < cookies.length; i++){
-                    if((cookies[i].getName()).contains("producto")){
-                        int ultimoCodigo = Integer.valueOf(cookies[i].getName().substring(8));
-                        if(ultimoCodigo > indexProducto || indexProducto == 0){
-                            indexProducto = ultimoCodigo;
-                        }
-                    }
-                }
-
-                Cookie producto = new Cookie("producto".concat(Integer.toString(++indexProducto)), codigoProducto);
-
-                response.addCookie(producto);
-
-                request.setAttribute("productosCarro", Integer.valueOf(indexProducto));
-
-                getServletContext().getRequestDispatcher("/controlprincipal").forward(request, response);
-
-            }
-        }
-
-        if(servlet.equals("/carro-compras.ss")){
-
-            List<Producto> productos = new ArrayList<Producto>();
-
-            Cookie[] cookies = request.getCookies();
-
-            boolean contieneProductos = false;
-
-            for(int i = 0; i < cookies.length; i++){
-                if((cookies[i].getName()).contains("producto")){
-                    contieneProductos = true;
-                    break;
-                }
+                response.getWriter().println("no tienes permiso para visitar esta pagina. Registrate o inicia sesión");
             }
 
-            if(contieneProductos){
 
-                List<String> codigosProductos = new ArrayList<String>();
-
-                for(int i = 0; i < cookies.length; i++){
-                    if((cookies[i].getName()).contains("producto")){
-                        codigosProductos.add((cookies[i].getValue()));
-                    }
-                }
-
-                DaoProducto daoProducto = new DaoProducto();
-
-                for(int i = 0; i < codigosProductos.size(); i++){
-                    productos.add(daoProducto.buscarProducto(Integer.parseInt(codigosProductos.get(i))));
-                }
-
-                request.setAttribute("productos", productos);
-
-                getServletContext().getRequestDispatcher("/vistas/carrocompras.jsp").forward(request, response);
-
-            }
 
 
         }
+
+
 
 
     }

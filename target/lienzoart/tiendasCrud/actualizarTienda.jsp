@@ -83,7 +83,7 @@
 
         </div>
 
-        <div class="col-6 mt-3">
+        <div class="col-12 mt-3">
 
 
             <label class="form-label">Descripcion</label>

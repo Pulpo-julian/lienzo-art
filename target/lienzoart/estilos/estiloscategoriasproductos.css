@@ -1,5 +1,5 @@
-																																																																																																																																																																																	*{
-	@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+*{
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 }
 
 aside{
@@ -48,7 +48,6 @@ aside{
 }
 
 .producto{ /*Estilos de la caja de productos*/
-	border: 10px solid black;
 	margin: 20px;
 	width: 250px;
 	height: auto;
@@ -79,6 +78,7 @@ aside{
 	text-align: center;
 	text-transform: capitalize;
 }
+
 .muestra:hover .img {transform:scale(1.03) translate(0,0);}
 .contenedor {overflow:hidden;}
 .muestra img{
@@ -98,6 +98,7 @@ aside{
 	text-transform: capitalize;
 	color: black;
 }
+
 .tienda:hover {
 	transition-delay:1s, 150ms;
 	transition-property: margin-right, color;

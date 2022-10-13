@@ -51,7 +51,9 @@
             </div>
 
             <div class="boton-crear">
-                <a href="${pageContext.request.contextPath}/formularioproducto"> Crear Producto </a>
+
+                <a href="${pageContext.request.contextPath}/formularioproducto"> Publicar Producto </a>
+
             </div>
 
         </div>

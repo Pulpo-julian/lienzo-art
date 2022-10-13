@@ -33,6 +33,9 @@ public class DaoUsuario {
 
     private static final String SQL_SELECT_BY_MAIL_PASS = "SELECT docid, nombres, apellidos, correo, perfil, telefono, ciudad, codigopostal, direccion FROM tblusuario WHERE correo = ? AND ? = AES_DECRYPT(clave, \"lienzoart22\");";
 
+    private static final String SQL_CARRO_USID = "SELECT * FROM tblcarrocompras WHERE usuarioid = ?;";
+
+    private static final String SQL_CREAR_CARRO_USID = "INSERT INTO tblcarrocompras VALUES(null, ?);";
 
 
 
@@ -276,6 +279,62 @@ public class DaoUsuario {
         }
     }
 
+    public Integer buscarCarroUsuario (String docid){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Integer codCarro = null;
+
+        try {
+
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_CARRO_USID);
+            stmt.setString(1, docid);
+            rs = stmt.executeQuery();
+
+            rs.next();
+            codCarro = rs.getInt(1);
+
+
+            return codCarro;
+
+        } catch (Exception e) {
+
+            e.printStackTrace(System.out);
+
+        } finally {
+            Conexion.closeConnection(rs);
+            Conexion.closeConnection(stmt);
+            Conexion.closeConnection(conn);
+        }
+
+        return codCarro;
+    }
+
+    public void crearCarroUsuario (String docid){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+
+        try {
+
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_CREAR_CARRO_USID);
+            stmt.setString(1, docid);
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+
+            e.printStackTrace(System.out);
+
+        } finally {
+            Conexion.closeConnection(rs);
+            Conexion.closeConnection(stmt);
+            Conexion.closeConnection(conn);
+        }
+
+    }
 
 
 

@@ -2,6 +2,7 @@
          pageEncoding="UTF-8"%>
 
 <%String buscar = (String) request.getAttribute("buscar"); %>
+<%Integer cantProductosCarro = (Integer) request.getSession().getAttribute("cantidadproductoscarro");%>
 <head>
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -45,7 +46,12 @@
         
              <form action="${pageContext.request.contextPath}/controlsesion" method="post">
                 <input type="submit" name="carrocompras" value="Carrocompras" class="btncarrocompras">
-             </form>                                
+             </form>
+            <%if(cantProductosCarro != null && cantProductosCarro != 0){%>
+                <div class="cantidad-producto-agregados">
+                    <h5><%out.print(cantProductosCarro);%></h5>
+                </div>
+            <%}%>
     
         </div>
                        
