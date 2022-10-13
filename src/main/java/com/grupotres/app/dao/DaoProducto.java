@@ -617,13 +617,18 @@ public class DaoProducto {
 
     }
 
-    public int insertarProductoCarroModCantidad(int codPro, int codCarro) {
+    //envio true si quiero aumentar o false si quiero disminuir
+    public int insertarProductoCarroModCantidad(int codPro, int codCarro, boolean aumentar) {
 
         ItemProducto itemProducto = itemPorCarroProducto(codPro, codCarro);
 
         int cantidad = itemProducto.getCantProducto();
 
-        itemProducto.setCantProducto(cantidad + 1);
+        if(aumentar) {
+            itemProducto.setCantProducto(cantidad + 1);
+        } else if(!aumentar) {
+            itemProducto.setCantProducto(cantidad - 1);
+        }
 
         //actualizo cantidad
         Connection conn = null;

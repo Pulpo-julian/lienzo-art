@@ -32,11 +32,13 @@
 <jsp:include page="../commons/headerSesion.jsp"></jsp:include>
 
 <div class="flex_container">
-    <%if (items != null && items.size() > 0) { int i = 0; %>
+    <%if (items != null && items.size() > 0) { int i = 0; int valorTotal = 0;%>
 
     <h1>Tus productos agregados</h1>
 
     <% for(ItemProducto item: items){ Producto producto = productos.get(i++);%>
+
+        <%if(item.getCantProducto() == 0) continue;%>
 
     <div class="producto card" style="border-radius: 10px;">
 
@@ -65,10 +67,11 @@
                 <div class ="valor-total">
                     <h4>valor total: </h4>
                     <h3><%out.print(item.getCantProducto() * item.getValorProducto());%></h3>
+                    <%valorTotal += item.getCantProducto() * item.getValorProducto();%>
                 </div>
 
 
-                <a href="${pageContext.request.contextPath}/guardar-producto?codpro=<%out.print(producto.getCodigo());%>&pre=<%out.print(producto.getPrecio());%>" class="carrito">Eliminar Producto</a>
+                <a href="${pageContext.request.contextPath}/eliminar-producto?codpro=<%out.print(producto.getCodigo());%>" class="carrito">Eliminar Producto</a>
             </div>
 
         </div>
@@ -77,7 +80,9 @@
 
     <%} %>
 
-
+    <div class="precio-total">
+        <h2>Total a pagar:</h2><h1>$ <%out.print(valorTotal);%></h1>
+    </div>
     <%} %>
 </div>
 

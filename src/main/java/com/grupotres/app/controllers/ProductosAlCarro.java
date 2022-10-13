@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet({"/guardar-producto", "/productos-carro"})
+@WebServlet({"/guardar-producto", "/productos-carro", "/eliminar-producto"})
 public class ProductosAlCarro extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,7 +27,7 @@ public class ProductosAlCarro extends HttpServlet {
             Optional<Usuario> usuarioOptional = daoUsuario.getObjetoUsuario(request);
 
             if(usuarioOptional.isPresent()){
-                String codigoProducto = request.getParameter("codpro");
+                int codigoProducto = Integer.parseInt(request.getParameter("codpro"));
                 String docIdUsuario = ((Usuario)(request.getSession().getAttribute("usuario"))).getDocid();
 
                 Integer codCarro = daoUsuario.buscarCarroUsuario(docIdUsuario);
@@ -40,13 +40,13 @@ public class ProductosAlCarro extends HttpServlet {
                     DaoProducto daoProducto = new DaoProducto();
 
                     //listar por producto y carro para ver si ya se ingreso un registro
-                    ItemProducto productoPrueba = daoProducto.itemPorCarroProducto(Integer.parseInt(codigoProducto), codCarro);
+                    ItemProducto productoPrueba = daoProducto.itemPorCarroProducto(codigoProducto, codCarro);
 
                     if(productoPrueba == null){
-                        daoProducto.insertarProductoCarro(Integer.parseInt(codigoProducto), codCarro, 1, precio);
+                        daoProducto.insertarProductoCarro(codigoProducto, codCarro, 1, precio);
                     } else {
                         //modifico la cantidad del registro
-                        daoProducto.insertarProductoCarroModCantidad(Integer.parseInt(codigoProducto), codCarro);
+                        daoProducto.insertarProductoCarroModCantidad(codigoProducto, codCarro, true);
                     }
 
                     Integer cantidadProductos = 0;
@@ -72,12 +72,26 @@ public class ProductosAlCarro extends HttpServlet {
 
         }
 
-    }
+        if(servlet.contains("/eliminar-producto")){
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            DaoUsuario daoUsuario = new DaoUsuario();
+            Optional<Usuario> usuarioOptional = daoUsuario.getObjetoUsuario(request);
 
-        String servlet = request.getServletPath();
+            if(usuarioOptional.isPresent()){
+
+                int codigoProducto = Integer.parseInt(request.getParameter("codpro"));
+
+                Integer codCarro = (Integer) request.getSession().getAttribute("carro");
+
+                DaoProducto daoProducto = new DaoProducto();
+
+                daoProducto.insertarProductoCarroModCantidad(codigoProducto, codCarro, false);
+
+                getServletContext().getRequestDispatcher("/productos-carro").forward(request, response);
+
+            }
+
+        }
 
         if(servlet.equals("/productos-carro")){
 
@@ -92,6 +106,17 @@ public class ProductosAlCarro extends HttpServlet {
                 List<ItemProducto> itemProductos = daoProducto.listarPorCarro(codCarro);
                 List<Producto> productos = new ArrayList<Producto>();
 
+                //cuento la cantidad de productos
+                Integer cantidadProductos = 0;
+
+                List<ItemProducto> productosItem = daoProducto.listarPorCarro(codCarro);
+
+                if(productos != null){
+                    cantidadProductos = daoProducto.cantidadProductosEnCarro(productosItem);
+                }
+
+                request.getSession().setAttribute("cantidadproductoscarro", cantidadProductos);
+
                 for(ItemProducto item: itemProductos){
                     Producto producto = daoProducto.buscarProducto(item.getCodProducto());
                     productos.add(producto);
@@ -105,6 +130,15 @@ public class ProductosAlCarro extends HttpServlet {
             }
 
         }
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
+
 
     }
 }
