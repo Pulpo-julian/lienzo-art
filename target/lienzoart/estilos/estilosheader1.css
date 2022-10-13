@@ -26,14 +26,14 @@ header{
     margin-top: 7px;
 }
 
-.buscador .btn{
+.buscador .btn{ /*Posicionamiento para el botón de búsqueda*/
     transform: translateY(-39px);
     position: absolute;
 }
 
-.buscador button{ /*Estilos y posicionamiento del bot�n de b�squeda*/
+.buscador button{ /*Estilos del bot�n de b�squeda*/
     border: none;
-    background-color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .btniniciarsesion{ /*Estilos y posicionamiento del bot�n de iniciar sesi�n*/

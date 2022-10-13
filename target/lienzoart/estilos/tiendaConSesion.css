@@ -35,6 +35,7 @@
 }
 
 .flex_container{
+    float: left;
     display: flex;
     flex-direction: row;
     flex-flow: row wrap;
