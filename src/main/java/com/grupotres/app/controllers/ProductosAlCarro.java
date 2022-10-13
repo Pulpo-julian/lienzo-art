@@ -86,6 +86,16 @@ public class ProductosAlCarro extends HttpServlet {
             Optional<Usuario> usuarioOptional = daoUsuario.getObjetoUsuario(request);
 
             if(usuarioOptional.isPresent()){
+                //listo los productos por el codigo del carro del usuario
+                DaoProducto daoProducto = new DaoProducto();
+                Integer codCarro = (Integer) request.getSession().getAttribute("carro");
+                List<ItemProducto> itemProductos = daoProducto.listarPorCarro(codCarro);
+                List<Producto> productos = new ArrayList<Producto>();
+
+                for(ItemProducto item: itemProductos){
+                    Producto producto = daoProducto.buscarProducto(item.getCodProducto());
+
+                }
 
             }
 
