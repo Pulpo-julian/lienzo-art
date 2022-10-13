@@ -35,59 +35,42 @@
     <jsp:include page="../commons/headerSesion.jsp"></jsp:include>
 
     <div class="container-tienda">
-
         <div class="info-tienda">
-
             <div class="muestra">
-
                 <img alt="TIENDA#" src="img/tiendaEjemplo.jpg" class="img">
-
                 <h4><% out.print(tienda.getNombre());%></h4>
             </div>
-
             <div class="resumen">
                 <h6>Direccion: <%out.print(tienda.getDireccion());%></h6>
                 <p>Sobre Nosotros: <%out.print(tienda.getDescripcion());%></p>
             </div>
-
             <div class="boton-crear">
-
                 <a href="${pageContext.request.contextPath}/formularioproducto"> Publicar Producto </a>
-
             </div>
-
         </div>
 
 
         <div class="flex_container caja-productos">
             <%if (productos != null && productos.size() > 0) {%>
-
             <h1>Tus Productos Publicados</h1>
-
             <% for(Producto producto: productos){ %>
-
             <div class="producto card" style="border-radius: 10px;">
-
                 <div class="muestra">
                     <a href="${pageContext.request.contextPath}/detalle-producto?codpro=<%out.print(producto.getCodigo());%>">
                         <img alt="#" src="<% out.println(producto.getUrlImagen()); %>" class="img">
                     </a>
-
                     <h4><% out.print(producto.getNombre());%></h4>
                 </div>
 
                 <div class="informacion" >
-
                     <ul class="listaproducto">
                         <li> <h6>Categoria: 	<% out.print(producto.getCategoria()); %></h6> </li>
                         <li> <h6>Estado: <% out.print(producto.getEstado()); %></h6> </li>
                         <li> <h6>Existencia: <% out.print(producto.getExistencia()); %></h6> </li>
                     </ul>
-
                     <div class="preciocarrito">
                         <a href="#" class="precio"><% out.print("$" + producto.getPrecio()); %></a>
                     </div>
-
                 </div>
 
                 <div class="editar-producto">
