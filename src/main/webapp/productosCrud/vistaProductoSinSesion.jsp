@@ -52,7 +52,8 @@
                         <div class="informacion">
 
                             <div class="descripcion">
-                                <p>Lorem Ipsum jeflairhiseurhgieurqñbgaieuhgañjfhvaiñrbj  hwefniw  ef a a reg ewt getw gerq g wek</p>
+                                <h3>Descripcion: </h3>
+                                <p><%out.print(producto.getDescripcion());%></p>
                             </div>
 
                             <ul class="listaproducto mt-3">
