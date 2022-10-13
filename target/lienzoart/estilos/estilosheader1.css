@@ -2,6 +2,7 @@ header{
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
     font-size: 18px;
     background-color: #59aed6;
+    height: 4rem;
 }
 
 .logo img{ /*Estilos para el logo en el header*/
@@ -26,14 +27,14 @@ header{
     margin-top: 7px;
 }
 
-.buscador .btn{
+.buscador .btn{ /*Posicionamiento para el botón de búsqueda*/
     transform: translateY(-39px);
     position: absolute;
 }
 
-.buscador button{ /*Estilos y posicionamiento del bot�n de b�squeda*/
+.buscador button{ /*Estilos del bot�n de b�squeda*/
     border: none;
-    background-color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .btniniciarsesion{ /*Estilos y posicionamiento del bot�n de iniciar sesi�n*/

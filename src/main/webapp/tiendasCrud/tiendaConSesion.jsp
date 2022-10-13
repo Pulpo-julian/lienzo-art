@@ -46,7 +46,7 @@
             </div>
 
             <div class="resumen">
-                <h6>Direccion: <%out.print(tienda.getDireccion());%></h6>
+                <h6>Dirección: <%out.print(tienda.getDireccion());%></h6>
                 <p>Sobre Nosotros: <%out.print(tienda.getDescripcion());%></p>
             </div>
 
@@ -59,41 +59,44 @@
         </div>
 
 
-        <div class="flex_container caja-productos">
+        <div class="caja-productos">
             <%if (productos != null && productos.size() > 0) {%>
 
-            <h1>Tus Productos Publicados</h1>
+            <h1>Tus productos publicados</h1>
 
             <% for(Producto producto: productos){ %>
 
-            <div class="producto card" style="border-radius: 10px;">
+            <div class="flex_container">
 
-                <div class="muestra">
-                    <a href="${pageContext.request.contextPath}/detalle-producto?codpro=<%out.print(producto.getCodigo());%>">
-                        <img alt="#" src="<% out.println(producto.getUrlImagen()); %>" class="img">
-                    </a>
+                <div class="producto card" style="border-radius: 10px;">
 
-                    <h4><% out.print(producto.getNombre());%></h4>
-                </div>
+                    <div class="muestra">
+                        <a href="${pageContext.request.contextPath}/detalle-producto?codpro=<%out.print(producto.getCodigo());%>">
+                            <img alt="#" src="<% out.println(producto.getUrlImagen()); %>" class="img">
+                        </a>
 
-                <div class="informacion" >
+                        <h4><% out.print(producto.getNombre());%></h4>
+                    </div>
 
-                    <ul class="listaproducto">
-                        <li> <h6>Categoria: 	<% out.print(producto.getCategoria()); %></h6> </li>
-                        <li> <h6>Estado: <% out.print(producto.getEstado()); %></h6> </li>
-                        <li> <h6>Existencia: <% out.print(producto.getExistencia()); %></h6> </li>
-                    </ul>
+                    <div class="informacion">
 
-                    <div class="preciocarrito">
-                        <a href="#" class="precio"><% out.print("$" + producto.getPrecio()); %></a>
+                        <ul class="listaproducto">
+                            <li> <h6>Categoria: 	<% out.print(producto.getCategoria()); %></h6> </li>
+                            <li> <h6>Estado: <% out.print(producto.getEstado()); %></h6> </li>
+                            <li> <h6>Existencia: <% out.print(producto.getExistencia()); %></h6> </li>
+                        </ul>
+
+                        <div class="preciocarrito">
+                            <a href="#" class="precio"><% out.print("$" + producto.getPrecio()); %></a>
+                        </div>
+
+                    </div>
+
+                    <div class="editar-producto">
+                        <a href="${pageContext.request.contextPath}/editar-producto"> Actulizar Producto </a>
                     </div>
 
                 </div>
-
-                <div class="editar-producto">
-                    <a href="${pageContext.request.contextPath}/editar-producto"> Actulizar Producto </a>
-                </div>
-
             </div>
 
             <%} %>
