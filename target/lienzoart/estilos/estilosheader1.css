@@ -2,7 +2,6 @@ header{
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
     font-size: 18px;
     background-color: #59aed6;
-    height: 4rem;
 }
 
 .logo img{ /*Estilos para el logo en el header*/
